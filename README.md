@@ -166,7 +166,7 @@ Example:
 
 # Dashboard Preview
 
----
+--- ![Dashboard Preview](https://raw.githubusercontent.com/jitendera-code/Retail-Sales-Customer-Segmentation-Dashboard-SQL-Power-BI-Project/main/visuals.png)
 
 # Key Findings
 
