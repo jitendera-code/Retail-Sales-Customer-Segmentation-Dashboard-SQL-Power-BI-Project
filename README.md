@@ -42,39 +42,23 @@ The analysis aims to answer the following business questions:
 ---
 
 # Data Structure Overview
+Data Structure Overview
 
-The project uses transactional sales data from an online retail business.
+Since your model is simple, include:
 
-### Main Tables
+Online Retail Dataset
 
-| Table         | Description                                      |
-| ------------- | ------------------------------------------------ |
-| Online Retail | Transaction-level sales data                     |
-| Calendar      | Date dimension for trend analysis                |
-| Customer RFM  | Customer Recency, Frequency and Monetary metrics |
-
-### Key Fields
-
-* InvoiceNo
-* CustomerID
-* StockCode
-* Description
-* Quantity
-* UnitPrice
-* InvoiceDate
-* Country
-
-> *(Insert your Power BI Star Schema or ERD image here)*
-
-```text
-Fact Sales
-│
-├── Customer
-├── Calendar
-└── Product
-```
-
----
+InvoiceNo
+     │
+CustomerID
+     │
+Description
+     │
+Quantity
+     │
+UnitPrice
+     │
+InvoiceDate
 
 # Executive Summary
 
