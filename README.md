@@ -1,152 +1,182 @@
-Retail Sales Performance & Customer Retention Analytics
-Business Intelligence Analysis using SQL & Power BI
+1️⃣ Background & Business Overview
 
-Business Context
+Instead of:
 
-An online retail company selling gifts and household products wants to better understand its sales performance and customer purchasing behavior.
+As part of my learning journey...
 
-Although thousands of transactions are generated each year, the business lacks visibility into revenue trends, high-performing products, and customer retention opportunities.
+Write from the company's perspective:
 
-The Sales and Marketing teams require a centralized dashboard to monitor business performance and identify areas for revenue growth.
+A UK-based online retailer specializing in gifts and household products wants to improve revenue performance and customer retention. While the business collects thousands of transactions annually, the Sales and Marketing teams lack visibility into purchasing behavior, product performance, and customer loyalty. This analysis was conducted to identify revenue drivers, customer segments, and opportunities to improve business performance using transactional sales data.
 
-Business Problem
+This immediately sounds like real consulting work.
 
-The business wants to answer the following questions:
+2️⃣ Data Structure Overview
 
-Which products generate the highest revenue?
-How do sales change over time?
-When are customers most likely to place orders?
-Which customers generate the greatest business value?
-Which customer segments are most at risk of churn?
-What actions can improve customer retention and revenue growth?
-Dataset
+Since your model is simple, include:
 
-Business: UK-based Online Retail Company
+Online Retail Dataset
 
-Industry: Retail / E-commerce
+InvoiceNo
+     │
+CustomerID
+     │
+Description
+     │
+Quantity
+     │
+UnitPrice
+     │
+InvoiceDate
 
-The dataset contains transactional sales records including customer purchases, products, quantities, prices, invoice dates, and customer information.
+If you've created a Power BI star schema (FactSales + Date + Customer), use that instead. It demonstrates stronger modeling skills.
 
-Tools
-SQL Server
-Power BI
-Microsoft Excel
-Dashboard
+3️⃣ Executive Summary
 
-The dashboard was designed to support business decision-making for Sales and Marketing teams by monitoring:
+This should be 3–4 sentences only.
 
-Revenue Performance
-Customer Segmentation
-Product Performance
-Purchasing Behavior
-Sales Trends
+For your dashboard:
 
-Dashboard Preview
-[Dashboard Preview](https://raw.githubusercontent.com/jitendera-code/Retail-Sales-Customer-Segmentation-Dashboard-SQL-Power-BI-Project/main/visuals.png)
+The business generated approximately $10M in revenue from 22K orders across 4K customers. Revenue accelerated during the final quarter of the year, indicating strong seasonal demand. A relatively small number of products generated a significant share of revenue, while RFM analysis revealed that many customers fall into At Risk and Needs Attention segments, highlighting customer retention as a major business opportunity.
 
-Key Insights
+Notice:
 
-Revenue Performance
+No SQL.
 
-The business generated approximately:
+No Power BI.
 
-$10M Revenue
-22K Orders
-4K Customers
-$473 Average Order Value
-Business Insight
+Only business.
 
-The business maintains strong overall sales performance supported by a large customer base and healthy average order values.
+4️⃣ Dashboard Preview
 
-Seasonal Sales Trend
+Place your dashboard immediately after the Executive Summary.
 
-Revenue increases significantly during the final quarter of the year, with November generating the highest monthly sales.
+This matches Christine's advice: make the "So What?" available in one click.
 
-Business Insight
+5️⃣ Insights Deep Dive
 
-Customer demand is highly seasonal, indicating increased purchasing activity during holiday periods.
+This is where your README changes the most.
 
-Product Contribution
+Don't organize by charts.
 
-A relatively small number of products contribute a significant proportion of total revenue.
+Organize by business questions.
 
-Business Insight
+Insight 1 – Revenue Performance
 
-Revenue is concentrated among a limited group of high-performing products.
+Business Question
 
-Customer Purchasing Behavior
+How is the business performing overall?
 
-Most purchases occur between 11 AM and 2 PM.
+Finding
 
-Business Insight
+The company generated approximately $10M in revenue from 22K orders, with an average order value of $473.
 
-Customer purchasing activity peaks during midday business hours.
+Business Story
 
-Customer Segmentation
+The retailer has a strong sales base supported by repeat purchasing activity. Monitoring these KPIs provides a baseline for evaluating future growth initiatives.
 
-RFM analysis identified a large number of customers classified as:
+Insight 2 – Seasonal Demand
 
-At Risk
-Needs Attention
-Lost Customers
-Business Insight
+Business Question
 
-Customer retention presents one of the largest opportunities for improving long-term business performance.
+When does the business generate the most revenue?
 
-Recommendations
-Customer Retention
+Finding
 
-Collaborate with the Marketing team to investigate why customers in the At Risk and Needs Attention segments have reduced purchasing activity.
+Revenue increased significantly during Q4, with November producing the highest monthly sales.
 
-Loyalty Strategy
+Business Story
 
-Develop targeted loyalty initiatives for Champions and Loyal Customers to encourage repeat purchases.
+Demand is highly seasonal, suggesting that holiday shopping has a substantial impact on revenue performance.
 
-Inventory Planning
+Insight 3 – Product Performance
 
-Ensure sufficient inventory is available for high-performing products before periods of increased seasonal demand.
+Business Question
 
-Marketing Campaign Timing
+Which products contribute the most revenue?
 
-Schedule promotional campaigns during peak purchasing hours to maximize customer engagement.
+Finding
 
-Seasonal Planning
+A small number of products account for a disproportionate share of total sales.
 
-Prepare marketing campaigns and inventory allocation ahead of Q4 to capitalize on increased customer demand.
+Business Story
 
-Repository Structure
-Retail-Sales-Performance-Customer-Retention-Analytics
+The business relies heavily on several high-performing products, making inventory planning and stock availability critical.
 
+Insight 4 – Customer Purchasing Behavior
+
+Business Question
+
+When are customers most likely to purchase?
+
+Finding
+
+Order activity peaks between 11 AM and 2 PM.
+
+Business Story
+
+Customer demand is concentrated during midday business hours, providing a clear window for marketing campaigns and promotional activities.
+
+Insight 5 – Customer Retention
+
+Business Question
+
+Which customers require attention?
+
+Finding
+
+RFM analysis identified large groups of At Risk, Lost Customers, and Needs Attention customers.
+
+Business Story
+
+Although revenue remains strong, long-term growth may depend on improving customer retention rather than focusing solely on customer acquisition.
+
+Notice how every section follows Christine's pattern:
+
+Business Question
+
+↓
+
+Finding
+
+↓
+
+Business Story
+
+6️⃣ Business Recommendations
+
+Instead of generic bullets, connect each recommendation to an insight.
+
+Insight	Recommendation	Business Goal
+Q4 sales growth	Increase inventory before peak season	Reduce stockouts
+Top products	Prioritize high-performing SKUs	Protect key revenue streams
+Midday demand	Schedule promotions between 11 AM–2 PM	Improve campaign performance
+At Risk customers	Launch personalized retention campaigns	Increase repeat purchases
+Champions	Introduce loyalty rewards	Increase customer lifetime value
+
+This table makes your thinking much clearer.
+
+7️⃣ Caveats & Assumptions
+
+Christine specifically recommends this because it demonstrates real-world analytical thinking.
+
+For your project:
+
+Cancelled transactions were removed from the analysis.
+Transactions without a valid Customer ID were excluded from customer segmentation.
+The dataset primarily represents UK retail activity, so findings may not generalize to other markets.
+RFM segments are based on historical purchasing behavior and do not account for external factors such as seasonality or marketing campaigns.
+
+This is exactly the kind of section that differentiates portfolio work from tutorials.
+
+8️⃣ Repository Structure
+
+Keep this simple:
+
+Retail-Sales-Performance-Analytics
 │
 ├── README.md
+├── data/
 ├── sql/
-│   ├── Data_Cleaning.sql
-│   ├── Business_Analysis.sql
-│   └── RFM_Analysis.sql
-│
 ├── dashboard/
-│   └── RetailDashboard.pbix
-│
 ├── visuals/
-│   └── Dashboard.png
-│
-└── data/
-    └── OnlineRetail.csv
-Skills Demonstrated
-Technical
-SQL
-Power BI
-Excel
-Business
-Sales Performance Analysis
-Customer Segmentation (RFM)
-Revenue Analysis
-Business Dashboard Design
-Data Storytelling
-Business Recommendations
-Author
-
-Jitender Yadav
-
-Aspiring Data Analyst | SQL | Power BI | Excel
-
+└── docs/
