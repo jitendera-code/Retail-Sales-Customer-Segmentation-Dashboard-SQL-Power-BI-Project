@@ -1,182 +1,303 @@
-1️⃣ Background & Business Overview
+# 📊 Online Retail Sales & Customer Segmentation Analysis | SQL + Power BI
 
-Instead of:
+## Project Overview
 
-As part of my learning journey...
+As part of my Data Analytics learning journey, I worked on a real-world retail dataset to practice SQL, Power BI, data cleaning, business analysis, and customer segmentation.
 
-Write from the company's perspective:
+The dataset contains transactional records from a UK-based online retailer that sells gifts, decorative items, stationery, and household products.
 
-A UK-based online retailer specializing in gifts and household products wants to improve revenue performance and customer retention. While the business collects thousands of transactions annually, the Sales and Marketing teams lack visibility into purchasing behavior, product performance, and customer loyalty. This analysis was conducted to identify revenue drivers, customer segments, and opportunities to improve business performance using transactional sales data.
+The objective of this project was to transform raw transaction data into meaningful insights by analyzing sales performance, customer purchasing behavior, product contribution, and customer retention opportunities using RFM (Recency, Frequency, Monetary) Analysis.
 
-This immediately sounds like real consulting work.
+---
 
-2️⃣ Data Structure Overview
+# Why I Built This Project
 
-Since your model is simple, include:
+While learning SQL and Power BI, I wanted to work on a realistic business dataset instead of only practicing syntax and visualization techniques.
 
-Online Retail Dataset
+This project helped me understand how data analysts:
 
-InvoiceNo
-     │
-CustomerID
-     │
-Description
-     │
-Quantity
-     │
-UnitPrice
-     │
-InvoiceDate
+* Clean raw transactional data
+* Analyze business performance
+* Identify sales trends
+* Understand customer behavior
+* Segment customers based on value
+* Generate actionable recommendations from data
 
-If you've created a Power BI star schema (FactSales + Date + Customer), use that instead. It demonstrates stronger modeling skills.
+---
 
-3️⃣ Executive Summary
+# Project Objectives
 
-This should be 3–4 sentences only.
+The project was designed to answer the following questions:
 
-For your dashboard:
+### Sales Performance
 
-The business generated approximately $10M in revenue from 22K orders across 4K customers. Revenue accelerated during the final quarter of the year, indicating strong seasonal demand. A relatively small number of products generated a significant share of revenue, while RFM analysis revealed that many customers fall into At Risk and Needs Attention segments, highlighting customer retention as a major business opportunity.
+* How much revenue did the business generate?
+* How many orders were placed?
+* What is the average order value?
 
-Notice:
+### Product Analysis
 
-No SQL.
+* Which products contribute the most revenue?
+* Which products are most important to the business?
 
-No Power BI.
+### Customer Behavior
 
-Only business.
+* When are customers most likely to place orders?
+* How does purchasing activity vary throughout the day?
 
-4️⃣ Dashboard Preview
+### Customer Segmentation
 
-Place your dashboard immediately after the Executive Summary.
+* Which customers are most valuable?
+* Which customers are at risk of becoming inactive?
+* How can customer retention be improved?
 
-This matches Christine's advice: make the "So What?" available in one click.
+---
 
-5️⃣ Insights Deep Dive
+# Dataset Information
 
-This is where your README changes the most.
+Dataset: Online Retail
 
-Don't organize by charts.
+Business Type:
+UK-based online retailer selling gifts, decorative items, stationery, and household products.
 
-Organize by business questions.
+Key Columns:
 
-Insight 1 – Revenue Performance
+* InvoiceNo
+* StockCode
+* Description
+* Quantity
+* InvoiceDate
+* UnitPrice
+* CustomerID
+* Country
 
-Business Question
+---
 
-How is the business performing overall?
+# Tools Used
 
-Finding
+* SQL Server (Data Cleaning & Analysis)
+* Power BI (Dashboard Development & Visualization)
+* Microsoft Excel (Data Exploration)
 
-The company generated approximately $10M in revenue from 22K orders, with an average order value of $473.
+---
 
-Business Story
+# Data Cleaning & Preparation
 
-The retailer has a strong sales base supported by repeat purchasing activity. Monitoring these KPIs provides a baseline for evaluating future growth initiatives.
+The dataset was cleaned and transformed using SQL Server.
 
-Insight 2 – Seasonal Demand
+### Cleaning Steps
 
-Business Question
+* Removed cancelled orders
+* Removed records with missing Customer IDs
+* Created TotalPrice metric
+* Converted data types where necessary
+* Created reusable SQL views
+* Prepared data for reporting and customer segmentation
 
-When does the business generate the most revenue?
+### Calculated Metrics
 
-Finding
+**Revenue**
 
-Revenue increased significantly during Q4, with November producing the highest monthly sales.
+```sql
+SUM(TotalPrice)
+```
 
-Business Story
+**Orders**
 
-Demand is highly seasonal, suggesting that holiday shopping has a substantial impact on revenue performance.
+```sql
+COUNT(DISTINCT InvoiceNo)
+```
 
-Insight 3 – Product Performance
+**Average Order Value (AOV)**
 
-Business Question
+```sql
+SUM(TotalPrice) / COUNT(DISTINCT InvoiceNo)
+```
 
-Which products contribute the most revenue?
+---
 
-Finding
+---
 
-A small number of products account for a disproportionate share of total sales.
+# RFM Customer Segmentation
 
-Business Story
+To better understand customer value, I performed RFM Analysis.
 
-The business relies heavily on several high-performing products, making inventory planning and stock availability critical.
+### Recency
 
-Insight 4 – Customer Purchasing Behavior
+Number of days since the customer's last purchase.
 
-Business Question
+### Frequency
 
-When are customers most likely to purchase?
+Number of distinct orders placed by the customer.
 
-Finding
+### Monetary
 
-Order activity peaks between 11 AM and 2 PM.
+Total amount spent by the customer.
 
-Business Story
+Customers were scored from 1–5 using SQL NTILE() functions.
 
-Customer demand is concentrated during midday business hours, providing a clear window for marketing campaigns and promotional activities.
+The final RFM score was generated by combining:
 
-Insight 5 – Customer Retention
+```text
+R Score + F Score + M Score
+```
 
-Business Question
+Example:
 
-Which customers require attention?
+```text
+555 = Best Customers
+111 = Least Engaged Customers
+```
 
-Finding
+---
 
-RFM analysis identified large groups of At Risk, Lost Customers, and Needs Attention customers.
+# Customer Segments
 
-Business Story
+| Segment             | Description                                          |
+| ------------------- | ---------------------------------------------------- |
+| Champions           | Recent buyers, frequent buyers, high spenders        |
+| Loyal Customers     | Consistent repeat buyers                             |
+| Potential Loyalists | Customers with future growth potential               |
+| Needs Attention     | Customers showing reduced engagement                 |
+| At Risk             | Customers likely to stop purchasing                  |
+| Lost Customers      | Previously active customers who have become inactive |
 
-Although revenue remains strong, long-term growth may depend on improving customer retention rather than focusing solely on customer acquisition.
+---
 
-Notice how every section follows Christine's pattern:
+# Dashboard Preview
 
-Business Question
+---
 
-↓
+# Key Findings
 
-Finding
+## 1. Strong Revenue Performance
 
-↓
+The business generated approximately:
 
-Business Story
+* Revenue: $10M+
+* Orders: 22K+
+* Customers: 4K+
+* Average Order Value: $473
 
-6️⃣ Business Recommendations
+### What I Learned
 
-Instead of generic bullets, connect each recommendation to an insight.
+Basic business performance can be understood using a few key metrics such as Revenue, Orders, Customers, and AOV.
 
-Insight	Recommendation	Business Goal
-Q4 sales growth	Increase inventory before peak season	Reduce stockouts
-Top products	Prioritize high-performing SKUs	Protect key revenue streams
-Midday demand	Schedule promotions between 11 AM–2 PM	Improve campaign performance
-At Risk customers	Launch personalized retention campaigns	Increase repeat purchases
-Champions	Introduce loyalty rewards	Increase customer lifetime value
+---
 
-This table makes your thinking much clearer.
+## 2. Revenue Increased During Q4
 
-7️⃣ Caveats & Assumptions
+Revenue accelerated significantly during the final months of the year.
 
-Christine specifically recommends this because it demonstrates real-world analytical thinking.
+### What I Learned
 
-For your project:
+Seasonal trends can have a major impact on sales performance and should be considered when planning inventory and marketing activities.
 
-Cancelled transactions were removed from the analysis.
-Transactions without a valid Customer ID were excluded from customer segmentation.
-The dataset primarily represents UK retail activity, so findings may not generalize to other markets.
-RFM segments are based on historical purchasing behavior and do not account for external factors such as seasonality or marketing campaigns.
+---
 
-This is exactly the kind of section that differentiates portfolio work from tutorials.
+## 3. Orders Peak During Midday
 
-8️⃣ Repository Structure
+Customer purchasing activity was highest between approximately 11 AM and 2 PM.
 
-Keep this simple:
+### What I Learned
 
-Retail-Sales-Performance-Analytics
+Customer behavior analysis can help businesses determine the best timing for promotions and campaigns.
+
+---
+
+## 4. Top Products Drive Revenue
+
+A small number of products generated a significant share of total revenue.
+
+### What I Learned
+
+Businesses often rely heavily on a small group of high-performing products.
+
+---
+
+## 5. Customer Retention Opportunity
+
+RFM analysis showed a large number of customers in the At Risk, Lost Customer, and Needs Attention segments.
+
+### What I Learned
+
+Retaining existing customers can be just as important as acquiring new customers.
+
+---
+
+# Recommendations
+
+Based on the analysis, I would recommend:
+
+### Customer Retention
+
+* Re-engage At Risk customers through targeted campaigns
+* Offer personalized promotions to inactive customers
+
+### Loyalty Programs
+
+* Reward Champions and Loyal Customers
+* Encourage repeat purchases
+
+### Inventory Planning
+
+* Prioritize stock availability for top-performing products
+
+### Marketing Timing
+
+* Run promotions during peak purchasing hours
+
+### Seasonal Planning
+
+* Prepare inventory and campaigns before Q4 demand spikes
+
+---
+
+# Key Skills Demonstrated
+
+* SQL Data Cleaning
+* SQL Aggregations
+* Window Functions (NTILE)
+* Customer Segmentation (RFM)
+* Data Visualization
+* Power BI Dashboard Development
+* Business Analysis
+* Data Storytelling
+
+---
+
+# Repository Structure
+
+```text
+online-retail-sales-customer-segmentation-analysis
+
 │
-├── README.md
-├── data/
-├── sql/
-├── dashboard/
-├── visuals/
-└── docs/
+├── SQL Queries
+│   └── Retail_SQL_Analysis.sql
+│
+├── Visuals
+│   └── visuals.png
+│
+└── README.md
+```
+
+---
+
+# Key Learning Outcomes
+
+Through this project, I learned how to:
+
+* Clean and transform raw transactional data
+* Create analytical SQL views
+* Perform customer segmentation using RFM analysis
+* Build business-focused Power BI dashboards
+* Communicate insights through data storytelling
+* Translate data into actionable recommendations
+
+---
+
+# Author
+
+Jitender Yadav
+
+Aspiring Data Analyst | SQL | Power BI | Excel
