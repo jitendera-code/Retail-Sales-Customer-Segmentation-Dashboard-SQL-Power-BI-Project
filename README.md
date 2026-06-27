@@ -70,11 +70,7 @@ Revenue increased significantly during the final quarter of the year, indicating
 
 # Dashboard Preview
 
-*(Insert Dashboard Screenshot Here)*
-
-![Dashboard](visuals/dashboard.png)
-
----
+[Dashboard](https://github.com/jitendera-code/Retail-Sales-Customer-Segmentation-Dashboard-SQL-Power-BI-Project/blob/main/visuals.png)
 
 # Insights Deep Dive
 
