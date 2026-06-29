@@ -5,28 +5,23 @@
 ![Excel](https://img.shields.io/badge/Excel-Data%20Preparation-217346?logo=microsoftexcel&logoColor=white)
 
 ---
+📖 Project Background
 
-# Project Overview
+A UK-based online retail company specializing in gifts, home décor, stationery, and seasonal products processes thousands of customer transactions every year. While the business collects a large volume of transactional data, Sales and Marketing teams lack a centralized reporting solution to monitor business performance, customer behaviour, and revenue trends.
 
-This project analyzes transactional sales data from a UK-based online retail company to uncover business insights related to revenue performance, customer purchasing behavior, product performance, and customer retention.
+This project analyzes historical retail transactions to transform raw sales data into meaningful business insights. Using SQL Server for data preparation and Power BI for visualization, the analysis identifies revenue trends, customer purchasing behaviour, product performance, and customer retention opportunities to support data-driven business decisions.
 
-Using **SQL Server** for data preparation and business analysis and **Power BI** for interactive visualization, the project transforms raw transactional data into an executive dashboard that supports data-driven decision-making for Sales and Marketing teams.
+The analysis focuses on the following key business areas:
 
-Rather than focusing only on technical implementation, this project answers practical business questions that help stakeholders understand business performance, identify revenue opportunities, and improve customer retention.
+Revenue Performance: Evaluate overall business performance through key metrics such as Total Revenue, Total Orders, Total Customers, and Average Order Value (AOV).
+Sales Trend Analysis: Analyze monthly revenue trends to identify seasonality, growth patterns, and peak sales periods throughout the year.
+Product Performance: Identify the products that contribute the highest revenue and evaluate their impact on overall business performance.
+Customer Purchasing Behaviour: Examine hourly purchasing patterns to determine when customers are most active and identify opportunities to optimize marketing campaigns.
+Customer Segmentation (RFM): Classify customers into behavioural segments using Recency, Frequency, and Monetary analysis to identify high-value customers and customers at risk of churn.
+Customer Retention: Evaluate customer loyalty and identify opportunities to improve repeat purchases through targeted retention strategies.
 
----
+The objective of this project is to provide stakeholders with a centralized executive dashboard that supports strategic decision-making, improves customer retention, optimizes inventory planning, and enables data-driven business growth.
 
-# Background & Business Context
-
-The company operates an online retail business specializing in gifts, home décor, stationery, and seasonal products. Every year, thousands of customer transactions are recorded across a wide range of products.
-
-Although a large amount of transactional data is available, Sales and Marketing teams lack a centralized reporting solution to monitor business performance efficiently. As a result, answering important questions—such as which products generate the most revenue, when customers are most active, or which customers are likely to stop purchasing—requires significant manual effort.
-
-To support better business decisions, management requested an analytical solution that transforms raw transaction records into meaningful business insights through interactive dashboards and customer segmentation.
-
-This project demonstrates how data analytics can help stakeholders monitor commercial performance, understand customer behavior, and identify opportunities to improve long-term business growth.
-
----
 
 # Business Problem
 
