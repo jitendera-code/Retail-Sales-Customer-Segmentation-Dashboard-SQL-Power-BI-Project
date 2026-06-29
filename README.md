@@ -13,7 +13,6 @@ This analysis was conducted to transform raw transactional data into actionable 
 
 # Business Objectives
 
-The analysis aims to answer the following business questions:
 
 ### Revenue Performance
 
