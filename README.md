@@ -5,7 +5,7 @@
 ![Excel](https://img.shields.io/badge/Excel-Data%20Preparation-217346?logo=microsoftexcel&logoColor=white)
 
 ---
-📖 Project Background
+# 📖 Project Background
 
 A UK-based online retail company specializing in gifts, home décor, stationery, and seasonal products processes thousands of customer transactions every year. While the business collects a large volume of transactional data, Sales and Marketing teams lack a centralized reporting solution to monitor business performance, customer behaviour, and revenue trends. This project analyzes historical retail transactions to transform raw sales data into meaningful business insights. Using SQL Server for data preparation and Power BI for visualization, the analysis identifies revenue trends, customer purchasing behaviour, product performance, and customer retention opportunities to support data-driven business decisions.
 
