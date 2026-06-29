@@ -1,248 +1,170 @@
 # 📊 Retail Sales Performance & Customer Retention Analytics
 
-
-# Background & Business Overview
-
-A UK-based online retail company specializing in gifts, decorative items, stationery, and household products wants to better understand its sales performance and customer purchasing behavior.
-
-Although the business records thousands of customer transactions each year, the Sales and Marketing teams have limited visibility into revenue trends, product performance, and customer retention. Without a centralized reporting solution, identifying business opportunities and customer risks becomes difficult.
-
-This analysis was conducted to transform raw transactional data into actionable business insights that support data-driven decision making across Sales and Marketing.
+![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
+![SQL Server](https://img.shields.io/badge/SQL%20Server-Analysis-CC2927?logo=microsoftsqlserver&logoColor=white)
+![Excel](https://img.shields.io/badge/Excel-Data%20Preparation-217346?logo=microsoftexcel&logoColor=white)
 
 ---
 
-# Business Objectives
+# Project Overview
 
+This project analyzes transactional sales data from a UK-based online retail company to uncover business insights related to revenue performance, customer purchasing behavior, product performance, and customer retention.
+
+Using **SQL Server** for data preparation and business analysis and **Power BI** for interactive visualization, the project transforms raw transactional data into an executive dashboard that supports data-driven decision-making for Sales and Marketing teams.
+
+Rather than focusing only on technical implementation, this project answers practical business questions that help stakeholders understand business performance, identify revenue opportunities, and improve customer retention.
+
+---
+
+# Background & Business Context
+
+The company operates an online retail business specializing in gifts, home décor, stationery, and seasonal products. Every year, thousands of customer transactions are recorded across a wide range of products.
+
+Although a large amount of transactional data is available, Sales and Marketing teams lack a centralized reporting solution to monitor business performance efficiently. As a result, answering important questions—such as which products generate the most revenue, when customers are most active, or which customers are likely to stop purchasing—requires significant manual effort.
+
+To support better business decisions, management requested an analytical solution that transforms raw transaction records into meaningful business insights through interactive dashboards and customer segmentation.
+
+This project demonstrates how data analytics can help stakeholders monitor commercial performance, understand customer behavior, and identify opportunities to improve long-term business growth.
+
+---
+
+# Business Problem
+
+Management wants to answer several key business questions:
 
 ### Revenue Performance
 
-* How is the business performing overall?
-* How does revenue change throughout the year?
-* What is the average order value?
+- How is the business performing overall?
+- How has revenue changed throughout the year?
+- What is the Average Order Value (AOV)?
 
 ### Product Performance
 
-* Which products generate the highest revenue?
-* Which products contribute most to business growth?
+- Which products generate the highest revenue?
+- Which products contribute most to total sales?
 
-### Customer Behaviour
+### Customer Purchasing Behaviour
 
-* When are customers most likely to place orders?
-* How does purchasing activity change throughout the day?
+- During which hours are customers most likely to place orders?
+- How does purchasing activity change throughout the day?
 
 ### Customer Retention
 
-* Which customers generate the highest value?
-* Which customers are becoming inactive?
-* Which customer groups should Marketing prioritize?
+- Which customer segments generate the greatest business value?
+- Which customers are becoming inactive?
+- Which customer groups should Marketing prioritize for retention campaigns?
 
 ---
 
-# Data Structure Overview
+# Project Goals
 
-Online Retail Dataset
+The primary objectives of this analysis are to:
 
-InvoiceNo
-     │
-CustomerID
-     │
-Description
-     │
-Quantity
-     │
-UnitPrice
-     │
-InvoiceDate
+- Build an executive sales dashboard for business stakeholders.
+- Monitor revenue, customer activity, and purchasing trends.
+- Identify high-performing products.
+- Analyze customer purchasing behavior throughout the day.
+- Segment customers using RFM (Recency, Frequency, Monetary) analysis.
+- Identify customers at risk of churn.
+- Provide actionable business recommendations supported by data.
 
+---
+
+# Dataset Overview
+
+The analysis uses the **Online Retail** transactional dataset containing customer purchases made by a UK-based online retailer.
+
+### Dataset Summary
+
+| Attribute | Details |
+|-----------|---------|
+| Dataset | Online Retail |
+| Time Period | December 2010 – December 2011 |
+| Total Records | ~541,909 transaction rows |
+| Customers | ~4,000 |
+| Orders | ~22,000 |
+| Revenue | ~$10 Million |
+| Primary Market | United Kingdom |
+| Data Granularity | One row represents one product purchased within an invoice |
+
+Each invoice may contain multiple products, meaning several rows can belong to the same customer order.
+
+---
+
+# Data Model Overview
+
+The dataset consists of transactional records containing customer information, invoice details, purchased products, quantities, pricing, and timestamps.
+
+### Primary Fields
+
+| Column | Description |
+|---------|-------------|
+| InvoiceNo | Unique invoice identifier |
+| StockCode | Product identifier |
+| Description | Product name |
+| Quantity | Quantity purchased |
+| InvoiceDate | Date and time of purchase |
+| UnitPrice | Selling price per unit |
+| CustomerID | Unique customer identifier |
+| Country | Customer location |
+
+To support reporting and customer analytics, the transactional data was cleaned and transformed before loading into Power BI.
+
+Additional calculated fields and measures were created to support:
+
+- Revenue Analysis
+- Time Intelligence
+- Product Performance
+- RFM Customer Segmentation
+- Executive KPI Reporting
+
+---
+
+# Data Preparation
+
+Before analysis, the raw transactional dataset required several preprocessing steps to improve data quality and analytical accuracy.
+
+The cleaning process included:
+
+- Removing cancelled invoices
+- Removing transactions with missing Customer IDs
+- Removing invalid quantities and prices
+- Creating Total Revenue calculations
+- Standardizing date fields
+- Preparing analytical SQL views
+- Generating RFM metrics for customer segmentation
+
+These transformations ensured that all dashboard metrics accurately reflected completed customer purchases.
+
+---
 
 # Executive Summary
 
-The business generated approximately **$10M in revenue** from **22K orders** across **4K customers**, with an **Average Order Value of $473**.
+The business generated approximately **$10 million in revenue** from over **22,000 completed orders** across nearly **4,000 customers**, resulting in an **Average Order Value of $473**.
 
-Revenue increased significantly during the final quarter of the year, indicating strong seasonal demand. A relatively small group of products contributed a substantial share of total revenue, while RFM analysis identified a large number of customers classified as **At Risk**, **Needs Attention**, and **Lost Customers**, highlighting customer retention as an important business opportunity.
+Revenue accelerated significantly during the final quarter of the year, indicating strong seasonal demand driven by holiday purchasing behavior. Product sales were concentrated among a relatively small number of high-performing SKUs, highlighting the importance of inventory planning for key products.
+
+Customer segmentation using the RFM framework revealed that a substantial proportion of customers fall into **At Risk**, **Needs Attention**, and **Lost Customer** segments. While the business has a valuable group of loyal customers, improving customer retention presents one of the largest opportunities for sustainable revenue growth.
+
+Overall, the analysis provides management with a centralized view of sales performance, customer behavior, and retention opportunities to support data-driven commercial decisions.
 
 ---
 
-# Dashboard Preview
+# Dashboard Overview
+
+The executive dashboard was designed to provide stakeholders with an at-a-glance summary of business performance.
+
+The dashboard includes:
+
+- Executive KPIs
+- Monthly Revenue Trend
+- Top Revenue Generating Products
+- Customer Purchase Behaviour by Hour
+- RFM Customer Segmentation
+- Customer Retention Overview
+
+> **Dashboard Preview**
+
 ![Dashboard](https://github.com/jitendera-code/Retail-Sales-Customer-Segmentation-Dashboard-SQL-Power-BI-Project/blob/main/visuals.png)
 
-# Insights Deep Dive
-
-## Insight 1 — Overall Business Performance
-
-### Business Question
-
-How is the business performing overall?
-
-### Findings
-
-* Revenue exceeded **$10M**
-* More than **22K orders**
-* Approximately **4K customers**
-* Average Order Value of **$473**
-
-### Business Insight
-
-The company has established a strong customer base with healthy purchasing activity. These KPIs provide a baseline for measuring future business growth.
-
----
-
-## Insight 2 — Seasonal Revenue Trends
-
-### Business Question
-
-How does revenue change over time?
-
-### Findings
-
-Revenue increased steadily during Q4, with November generating the highest monthly sales.
-
-### Business Insight
-
-The business experiences strong seasonal demand during the holiday shopping period. Planning inventory and marketing activities before Q4 could maximize revenue opportunities.
-
----
-
-## Insight 3 — Product Performance
-
-### Business Question
-
-Which products contribute most to revenue?
-
-### Findings
-
-A relatively small number of products contribute a significant proportion of overall revenue.
-
-### Business Insight
-
-Business performance depends heavily on several high-performing products. Maintaining inventory availability for these products is essential for protecting revenue.
-
----
-
-## Insight 4 — Customer Purchasing Behaviour
-
-### Business Question
-
-When are customers most active?
-
-### Findings
-
-Customer purchasing activity peaks between **11 AM and 2 PM**.
-
-### Business Insight
-
-Midday represents the highest customer engagement period and offers an ideal opportunity for promotional campaigns and marketing activities.
-
----
-
-## Insight 5 — Customer Segmentation
-
-### Business Question
-
-Which customer groups require business attention?
-
-### Findings
-
-RFM segmentation identified a large proportion of customers in the following groups:
-
-* At Risk
-* Needs Attention
-* Lost Customers
-
-A smaller but valuable segment consists of Champions and Loyal Customers.
-
-### Business Insight
-
-Improving customer retention could have a significant impact on long-term revenue growth by increasing repeat purchases and customer lifetime value.
-
----
-
-# Business Recommendations
-
-| Business Opportunity | Recommendation                                                        | Expected Business Value                     |
-| -------------------- | --------------------------------------------------------------------- | ------------------------------------------- |
-| Customer Retention   | Launch personalized win-back campaigns for At Risk and Lost Customers | Increase repeat purchases and reduce churn  |
-| Customer Loyalty     | Reward Champions and Loyal Customers with exclusive offers            | Increase customer lifetime value            |
-| Product Performance  | Prioritize inventory for top-performing products                      | Reduce stockouts and protect revenue        |
-| Marketing Timing     | Schedule promotional campaigns between 11 AM and 2 PM                 | Improve campaign engagement and conversions |
-| Seasonal Planning    | Increase inventory and marketing investment before Q4                 | Maximize revenue during peak demand         |
-
----
-
-# Technical Implementation
-
-### Data Preparation
-
-The transactional dataset was cleaned and prepared using SQL Server.
-
-The preparation process included:
-
-* Removing cancelled transactions
-* Removing missing Customer IDs
-* Creating Total Revenue calculations
-* Preparing analytical SQL views
-* Creating RFM metrics for customer segmentation
-
----
-
-### Analytical Techniques
-
-* Revenue Analysis
-* Customer Segmentation (RFM)
-* Time Series Analysis
-* Product Performance Analysis
-* Customer Behaviour Analysis
-
----
-
-### Technology Stack
-
-* SQL Server
-* Power BI
-* Microsoft Excel
-
----
-
-# Caveats & Assumptions
-
-* Cancelled invoices were excluded from the analysis.
-* Transactions without Customer IDs were removed for customer-level reporting.
-* The dataset primarily represents UK retail transactions.
-* RFM segmentation is based on historical purchasing behaviour and does not include external business factors such as promotions or competitor activity.
-
----
-
-# Repository Structure
-
-```text
-Retail-Sales-Performance-Customer-Retention-Analytics
-
-│
-├── README.md
-│
-├── data
-│   └── OnlineRetail.csv
-│
-├── sql
-│   ├── Data_Cleaning.sql
-│   ├── Business_Analysis.sql
-│   ├── Customer_RFM.sql
-│
-├── dashboard
-│   └── RetailDashboard.pbix
-│
-├── visuals
-│   ├── Dashboard.png
-│   ├── StarSchema.png
-│
-└── docs
-    └── Business_Recommendations.pdf
-```
-
----
-
-# About This Project
-
-This project demonstrates how SQL and Power BI can be used to transform raw transactional data into business insights that support sales performance monitoring, customer segmentation, and strategic decision making for Sales and Marketing teams.
-
-
+*Figure 1. Executive dashboard summarizing revenue performance, customer purchasing behavior, product performance, and customer segmentation.*
