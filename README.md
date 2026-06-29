@@ -105,41 +105,8 @@ The dashboard includes:
 
 The following analysis answers the key business questions identified by management. Each insight combines quantitative findings with business interpretation and actionable recommendations to support data-driven decision-making.
 
----
 
-# Insight 1 — Executive Business Performance
-
-## Business Question
-
-**How is the business performing overall?**
-
-### Observation
-
-The business generated approximately **$10 million in revenue** from over **22,000 completed orders** across nearly **4,000 customers**, resulting in an **Average Order Value (AOV) of approximately $473**.
-
-These key performance indicators suggest a healthy customer base with strong purchasing activity throughout the analysis period.
-
-### Supporting Metrics
-
-| KPI | Value |
-|------|-------:|
-| Total Revenue | ~$10 Million |
-| Orders | ~22,000 |
-| Customers | ~4,000 |
-| Average Order Value | ~$473 |
-
-### Business Impact
-
-The company has established a solid commercial foundation supported by a broad customer base and consistent purchasing activity. These KPIs provide a benchmark for measuring future business growth and evaluating strategic initiatives.
-
-### Recommendation
-
-- Continue monitoring executive KPIs through an interactive dashboard.
-- Track revenue, customer growth, and order trends regularly to support strategic planning.
-
----
-
-# Insight 2 — Revenue Trend & Seasonality
+# Insight 1 — Revenue Trend & Seasonality
 
 ## Business Question
 
@@ -169,7 +136,7 @@ The business experiences predictable seasonal demand during the holiday season. 
 
 ---
 
-# Insight 3 — Product Performance
+# Insight 2 — Product Performance
 
 ## Business Question
 
@@ -197,7 +164,7 @@ Business performance depends heavily on a small group of high-performing product
 
 ---
 
-# Insight 4 — Customer Purchasing Behaviour
+# Insight 3 — Customer Purchasing Behaviour
 
 ## Business Question
 
@@ -223,7 +190,7 @@ Understanding purchasing behaviour helps Marketing teams schedule campaigns when
 
 ---
 
-# Insight 5 — Customer Segmentation (RFM Analysis)
+# Insight 4 — Customer Segmentation (RFM Analysis)
 
 ## Business Question
 
