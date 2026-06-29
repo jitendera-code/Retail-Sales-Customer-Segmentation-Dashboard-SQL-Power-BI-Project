@@ -7,18 +7,22 @@
 ---
 📖 Project Background
 
-A UK-based online retail company specializing in gifts, home décor, stationery, and seasonal products processes thousands of customer transactions every year. While the business collects a large volume of transactional data, Sales and Marketing teams lack a centralized reporting solution to monitor business performance, customer behaviour, and revenue trends.
-
-This project analyzes historical retail transactions to transform raw sales data into meaningful business insights. Using SQL Server for data preparation and Power BI for visualization, the analysis identifies revenue trends, customer purchasing behaviour, product performance, and customer retention opportunities to support data-driven business decisions.
+A UK-based online retail company specializing in gifts, home décor, stationery, and seasonal products processes thousands of customer transactions every year. While the business collects a large volume of transactional data, Sales and Marketing teams lack a centralized reporting solution to monitor business performance, customer behaviour, and revenue trends. This project analyzes historical retail transactions to transform raw sales data into meaningful business insights. Using SQL Server for data preparation and Power BI for visualization, the analysis identifies revenue trends, customer purchasing behaviour, product performance, and customer retention opportunities to support data-driven business decisions.
 
 The analysis focuses on the following key business areas:
 
 Revenue Performance: Evaluate overall business performance through key metrics such as Total Revenue, Total Orders, Total Customers, and Average Order Value (AOV).
+
 Sales Trend Analysis: Analyze monthly revenue trends to identify seasonality, growth patterns, and peak sales periods throughout the year.
+
 Product Performance: Identify the products that contribute the highest revenue and evaluate their impact on overall business performance.
+
 Customer Purchasing Behaviour: Examine hourly purchasing patterns to determine when customers are most active and identify opportunities to optimize marketing campaigns.
+
 Customer Segmentation (RFM): Classify customers into behavioural segments using Recency, Frequency, and Monetary analysis to identify high-value customers and customers at risk of churn.
+
 Customer Retention: Evaluate customer loyalty and identify opportunities to improve repeat purchases through targeted retention strategies.
+
 
 The objective of this project is to provide stakeholders with a centralized executive dashboard that supports strategic decision-making, improves customer retention, optimizes inventory planning, and enables data-driven business growth.
 
