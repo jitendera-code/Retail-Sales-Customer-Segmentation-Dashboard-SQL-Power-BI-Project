@@ -42,9 +42,6 @@ The analysis aims to answer the following business questions:
 ---
 
 # Data Structure Overview
-Data Structure Overview
-
-Since your model is simple, include:
 
 Online Retail Dataset
 
@@ -59,6 +56,7 @@ Quantity
 UnitPrice
      │
 InvoiceDate
+
 
 # Executive Summary
 
