@@ -53,43 +53,6 @@ Management wants to answer several key business questions:
 - Which customers are becoming inactive?
 - Which customer groups should Marketing prioritize for retention campaigns?
 
----
-
-# Project Goals
-
-The primary objectives of this analysis are to:
-
-- Build an executive sales dashboard for business stakeholders.
-- Monitor revenue, customer activity, and purchasing trends.
-- Identify high-performing products.
-- Analyze customer purchasing behavior throughout the day.
-- Segment customers using RFM (Recency, Frequency, Monetary) analysis.
-- Identify customers at risk of churn.
-- Provide actionable business recommendations supported by data.
-
----
-
-# Dataset Overview
-
-The analysis uses the **Online Retail** transactional dataset containing customer purchases made by a UK-based online retailer.
-
-### Dataset Summary
-
-| Attribute | Details |
-|-----------|---------|
-| Dataset | Online Retail |
-| Time Period | December 2010 – December 2011 |
-| Total Records | ~541,909 transaction rows |
-| Customers | ~4,000 |
-| Orders | ~22,000 |
-| Revenue | ~$10 Million |
-| Primary Market | United Kingdom |
-| Data Granularity | One row represents one product purchased within an invoice |
-
-Each invoice may contain multiple products, meaning several rows can belong to the same customer order.
-
----
-
 # Data Model Overview
 
 The dataset consists of transactional records containing customer information, invoice details, purchased products, quantities, pricing, and timestamps.
@@ -106,36 +69,6 @@ The dataset consists of transactional records containing customer information, i
 | UnitPrice | Selling price per unit |
 | CustomerID | Unique customer identifier |
 | Country | Customer location |
-
-To support reporting and customer analytics, the transactional data was cleaned and transformed before loading into Power BI.
-
-Additional calculated fields and measures were created to support:
-
-- Revenue Analysis
-- Time Intelligence
-- Product Performance
-- RFM Customer Segmentation
-- Executive KPI Reporting
-
----
-
-# Data Preparation
-
-Before analysis, the raw transactional dataset required several preprocessing steps to improve data quality and analytical accuracy.
-
-The cleaning process included:
-
-- Removing cancelled invoices
-- Removing transactions with missing Customer IDs
-- Removing invalid quantities and prices
-- Creating Total Revenue calculations
-- Standardizing date fields
-- Preparing analytical SQL views
-- Generating RFM metrics for customer segmentation
-
-These transformations ensured that all dashboard metrics accurately reflected completed customer purchases.
-
----
 
 # Executive Summary
 
