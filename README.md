@@ -1,7 +1,5 @@
 # 📊 Retail Sales Performance & Customer Retention Analytics
 
-### Business Intelligence Analysis using SQL & Power BI
-
 
 # Background & Business Overview
 
