@@ -241,132 +241,23 @@ Overall, the analysis provides management with actionable insights to improve re
 
 # 💡 Business Recommendations
 
-| Business Opportunity | Recommendation | Expected Business Value |
-|----------------------|----------------|-------------------------|
-| Customer Retention | Launch personalized win-back campaigns for At Risk and Lost Customers | Increase repeat purchases and reduce customer churn |
-| Customer Loyalty | Reward Champions and Loyal Customers through exclusive offers and loyalty programs | Improve Customer Lifetime Value (CLV) |
-| Product Performance | Prioritize inventory planning for top-selling products | Reduce stockouts and protect revenue |
-| Seasonal Planning | Increase inventory and marketing investment before Q4 | Maximize revenue during peak shopping periods |
-| Marketing Optimization | Schedule campaigns between **11 AM and 2 PM** | Improve customer engagement and campaign conversion |
-| Executive Reporting | Continuously monitor KPIs using interactive dashboards | Enable faster, data-driven business decisions |
+Based on the analysis, I would recommend:
 
-# 🛠️ Technical Implementation
+Customer Retention
+Re-engage At Risk customers through targeted campaignsOffer personalized promotions to inactive customers
 
-This project follows a complete end-to-end data analytics workflow, beginning with raw transactional data and ending with an executive dashboard designed for business stakeholders.
+Loyalty Programs
+Reward Champions and Loyal Customers Encourage repeat purchases
 
-The workflow consists of data cleaning, transformation, business analysis, customer segmentation, KPI development, and dashboard visualization.
+Inventory Planning
+Prioritize stock availability for top-performing products
 
----
+Marketing Timing
+Run promotions during peak purchasing hours
+Seasonal Planning
 
-# SQL Data Preparation
+Prepare inventory and campaigns before Q4 demand spikes
 
-The raw transactional dataset contained cancelled invoices, missing customer identifiers, and records that required cleaning before meaningful analysis could be performed.
-
-The data preparation process included:
-
-* Removing cancelled transactions (Invoice numbers beginning with **"C"**)
-* Excluding records with missing **CustomerID**
-* Removing invalid quantities and unit prices
-* Creating **Total Revenue** calculations
-* Standardizing date and time fields
-* Preparing analytical SQL views
-* Generating RFM metrics for customer segmentation
-
-These steps ensured that all business metrics accurately represented completed customer purchases.
-
----
-
-# Business Analysis Using SQL
-
-SQL was used to answer key business questions by transforming transactional data into meaningful business metrics.
-
-### Revenue Analysis
-
-* Total Revenue
-* Monthly Revenue Trend
-* Average Order Value (AOV)
-* Order Volume
-
-### Product Performance Analysis
-
-* Top Revenue Generating Products
-* Product Revenue Contribution
-* Best-Selling Products
-
-### Customer Behaviour Analysis
-
-* Customer Purchase Frequency
-* Hourly Purchasing Activity
-* Customer Order Distribution
-
-### Customer Segmentation
-
-RFM (Recency, Frequency, Monetary) analysis was performed to classify customers into behavioural segments, including:
-
-* Champions
-* Loyal Customers
-* Potential Loyalists
-* New Customers
-* Promising
-* Needs Attention
-* At Risk
-* Lost Customers
-
-This segmentation enables targeted retention and marketing strategies.
-
----
-
-# Power BI Dashboard
-
-The cleaned dataset was imported into Power BI to develop an interactive executive dashboard that provides stakeholders with a centralized view of business performance.
-
-### Dashboard Features
-
-* Executive KPI Cards
-* Monthly Revenue Trend
-* Top Revenue Generating Products
-* Customer Purchasing Behaviour by Hour
-* Customer Segmentation (RFM)
-* Interactive Filters and Slicers
-
-The dashboard enables users to explore business performance across multiple dimensions while supporting faster, data-driven decision-making.
-
----
-
-# Data Modeling
-
-A relational data model was developed within Power BI to improve report performance and simplify analysis.
-
-The model includes:
-
-* Fact Table for transactional sales
-* Dimension tables for Date and Customer analytics
-* One-to-Many relationships
-* Star Schema design principles
-* Optimized data model for DAX calculations
-
-This approach improves scalability, readability, and analytical performance.
-
----
-
-# DAX Measures
-
-Several DAX measures were created to calculate business KPIs and support executive reporting.
-
-Examples include:
-
-* Total Revenue
-* Total Orders
-* Total Customers
-* Average Order Value
-* Revenue Growth
-* Revenue (Previous Year)
-* Revenue Growth %
-* RFM Score Calculations
-
-These measures provide dynamic calculations that automatically respond to dashboard filters and slicers.
-
----
 
 # Tools & Technologies
 
@@ -408,45 +299,6 @@ Retail-Sales-Performance-Customer-Retention-Analytics
 
 ---
 
-# Skills Demonstrated
-
-This project demonstrates the following technical and business analytics skills:
-
-### Data Analytics
-
-* Business Performance Analysis
-* Customer Behaviour Analysis
-* Product Performance Analysis
-* Customer Segmentation (RFM)
-* KPI Development
-
-### SQL
-
-* Data Cleaning
-* Data Transformation
-* Aggregate Functions
-* Common Table Expressions (CTEs)
-* Window Functions
-* Business Query Writing
-
-### Power BI
-
-* Dashboard Design
-* Interactive Visualizations
-* Data Modeling
-* Star Schema
-* Power Query
-* DAX Measures
-
-### Business Skills
-
-* Data Storytelling
-* Business Insight Generation
-* Executive Reporting
-* Strategic Recommendations
-* KPI Interpretation
-
----
 
 # Caveats & Assumptions
 
@@ -488,16 +340,3 @@ This project demonstrates how transactional retail data can be transformed into 
 The analysis moves beyond descriptive reporting by identifying revenue trends, customer purchasing patterns, high-performing products, and customer retention opportunities. Using RFM segmentation and executive KPI reporting, the project provides stakeholders with practical recommendations to support marketing, inventory planning, and long-term business growth.
 
 Rather than focusing solely on dashboard development, this project emphasizes business problem-solving and demonstrates how data analytics can support strategic decision-making.
-
----
-
-# About This Project
-
-This project was developed as part of my Data Analytics portfolio to demonstrate practical business analysis using SQL Server and Power BI.
-
-The objective was not only to build an interactive dashboard but also to communicate meaningful business insights that help stakeholders make informed decisions. The project follows a complete analytics workflow—from data cleaning and transformation to visualization, storytelling, and business recommendations—mirroring the responsibilities of a Data Analyst in a real-world business environment.
-
-
-
-
-
