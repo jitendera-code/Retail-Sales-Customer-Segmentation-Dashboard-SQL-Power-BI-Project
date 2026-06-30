@@ -61,7 +61,7 @@ The business generated approximately $10M in revenue from 22K completed orders a
 
 ---
 
-#  Methodology
+#  Project Methodology
 
 Imported the Online Retail dataset into SQL Server and prepared it for analysis.
 
@@ -208,3 +208,32 @@ Sales Forecasting – Predict future sales trends using time series forecasting 
 Cohort Analysis – Analyze customer retention and repeat purchase behavior over time.
 
 Interactive Drill-Through Dashboard – Add drill-through pages and dynamic filters for deeper customer and product analysis.
+
+---
+
+ 📂 Repository Structure
+
+```text
+Retail-Sales-Performance-Customer-Retention-Analytics/
+│
+├── 📄 README.md
+│
+├── 📁 data/
+│   └── OnlineRetail.xlsx
+│
+├── 📁 sql/
+│   ├── Data_Cleaning.sql
+│   ├── Exploratory_Data_Analysis.sql
+│   ├── Business_Analysis.sql
+│   └── Customer_RFM.sql
+│
+├── 📁 powerbi/
+│   └── Retail_Sales_Dashboard.pbix
+│
+├── 📁 visuals/
+│   ├── Dashboard.png
+│   ├── Data_Model.png
+│   ├── Revenue_Trend.png
+│   ├── Product_Performance.png
+│   ├── Customer_Behaviour.png
+│   └── RFM_Segmentation.png
