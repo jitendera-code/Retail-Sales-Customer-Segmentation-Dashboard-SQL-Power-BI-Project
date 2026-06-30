@@ -46,6 +46,17 @@ Which customers require re-engagement to reduce customer attrition?
 
 Answering these questions enables the business to make informed decisions about inventory planning, marketing strategy, and customer retention initiatives, ultimately supporting long-term revenue growth.
 
+---
+# 📊 Executive Summary
+
+Overview of Findings
+The business generated approximately $10M in revenue from 22K completed orders across 4K customers. Revenue remained relatively stable throughout most of the year before increasing sharply during the fourth quarter, with November generating the highest monthly revenue ($1.51M), highlighting the business's strong dependence on seasonal demand.The analysis identified three key opportunities for improvement. First, revenue is concentrated among a relatively small number of high-performing products, emphasizing the importance of effective inventory management. Second, customer purchasing activity peaks between 10 AM and 2 PM, creating opportunities to improve the timing of marketing campaigns and operational planning. Finally, RFM analysis shows that a significant portion of customers belong to At Risk, Needs Attention, and Lost Customer segments, indicating that strengthening customer retention strategies could have a meaningful impact on long-term revenue growth.
+
+#  Dashboard
+
+![Dashboard](visuals.png)
+
+---
 # Data Structure & initial checks
 
 <img width="687" height="517" alt="image" src="https://github.com/user-attachments/assets/0c9e913d-7ccd-44ad-83d1-1931b2495ba1" />
@@ -69,14 +80,7 @@ Power BI: DAX Measures, Calculated Columns, KPI Cards, Interactive Dashboards, D
 
 Business Analytics: Customer Segmentation (RFM), Revenue Analysis, Product Performance Analysis, Customer Behavior Analysis, Customer Retention Analytics, KPI Reporting, Business Storytelling, Business Recommendations
 
-# 📊 Executive Summary
 
-Overview of Findings
-The business generated approximately $10M in revenue from 22K completed orders across 4K customers. Revenue remained relatively stable throughout most of the year before increasing sharply during the fourth quarter, with November generating the highest monthly revenue ($1.51M), highlighting the business's strong dependence on seasonal demand.The analysis identified three key opportunities for improvement. First, revenue is concentrated among a relatively small number of high-performing products, emphasizing the importance of effective inventory management. Second, customer purchasing activity peaks between 10 AM and 2 PM, creating opportunities to improve the timing of marketing campaigns and operational planning. Finally, RFM analysis shows that a significant portion of customers belong to At Risk, Needs Attention, and Lost Customer segments, indicating that strengthening customer retention strategies could have a meaningful impact on long-term revenue growth.
-
-#  Dashboard
-
-![Dashboard](visuals.png)
 
 ---
 
