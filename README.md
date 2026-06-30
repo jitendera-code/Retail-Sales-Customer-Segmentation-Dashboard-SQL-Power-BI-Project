@@ -34,9 +34,13 @@ Business stakeholders need a clearer understanding of what drives revenue growth
 Key business questions include:
 
 Which products generate the highest revenue?
+
 How does revenue change throughout the year?
+
 When are customers most likely to make purchases?
+
 Which customer segments contribute the greatest business value?
+
 Which customers require re-engagement to reduce customer attrition?
 
 Answering these questions enables the business to make informed decisions about inventory planning, marketing strategy, and customer retention initiatives, ultimately supporting long-term revenue growth.
