@@ -9,7 +9,6 @@
 - [🎯 Business Problem](#-business-problem)
 - [📊 Executive Summary](#-executive-summary)
 - [🗂️ Dataset Overview](#️-dataset-overview)
-- [🗄️ Dataset Structure & Data Model (ERD)](#️-dataset-structure--data-model-erd)
 - [⚙️ Project Methodology](#️-project-methodology)
 - [🛠️ Technical Skills Demonstrated](#️-technical-skills-demonstrated)
 - [📈 Insights Deep Dive](#-insights-deep-dive)
@@ -72,7 +71,7 @@ The business generated approximately $10M in revenue from 22K completed orders a
 ![Dashboard](visuals.png)
 
 ---
-# # 🗂️ Dataset Overview
+# 🗂️ Dataset Overview
 
 | Attribute | Details |
 |------------|----------|
@@ -86,7 +85,7 @@ The business generated approximately $10M in revenue from 22K completed orders a
 | Data Granularity | One row per invoice line item |
 ---
 
-#  Project Methodology
+# ⚙️ Project Methodology
 
 Imported the Online Retail dataset into SQL Server and prepared it for analysis.
 
@@ -101,7 +100,7 @@ Built an interactive Power BI dashboard to visualize KPIs, sales performance, cu
 
 ---
 
-#  Skills
+# 🛠️ Technical Skills Demonstrated
 
 SQL Server: Views, Data Cleaning, Data Transformation, Joins, Common Table Expressions (CTEs), Aggregate Functions, CASE Statements, Window Functions (NTILE), GROUP BY, Date Functions, RFM Analysis, Business Query Development
 
@@ -113,9 +112,9 @@ Business Analytics: Customer Segmentation (RFM), Revenue Analysis, Product Perfo
 
 ---
 
-# Insights Deep Dive
+# 📈 Insights Deep Dive
 
-## 📈 Insight 1: Revenue Follows a Strong Seasonal Growth Pattern
+# Revenue Performance
 
 <img width="1020" height="565" alt="image" src="https://github.com/user-attachments/assets/f4b4d794-7c81-4f25-b90d-e3626bbca4f7" />
 
@@ -124,7 +123,7 @@ Business Analytics: Customer Segmentation (RFM), Revenue Analysis, Product Perfo
 This historical trend suggests that the business experiences strong seasonal demand during the fourth quarter, with a significant share of annual revenue generated during the holiday shopping period. Because sales accelerate rapidly in Q4, proactive inventory planning, demand forecasting, and early promotional campaigns are essential to maximize revenue and avoid stock shortages during peak demand.
 
 ---
-## 📦 Product Performance
+# Product Performance
 
 <img width="817" height="437" alt="image" src="https://github.com/user-attachments/assets/2123d659-a957-4207-b87b-791f7fca0dd0" />
 
@@ -133,7 +132,7 @@ The revenue analysis shows that sales are concentrated among a relatively small 
 This distribution indicates that the business relies heavily on a limited number of high-performing products to generate revenue. Maintaining inventory availability and visibility for these best-selling products is therefore critical, as stock shortages or supply disruptions could have a disproportionate impact on overall sales. At the same time, lower-performing products present an opportunity for cross-selling, bundling, or promotional campaigns to improve their contribution to total revenue.
 
 
-## 🛒 Customer Purchasing Behavior
+# Customer Purchasing Behaviour
 
 <img width="1106" height="577" alt="image" src="https://github.com/user-attachments/assets/ccdbcb3a-5809-4196-92d8-8d7c2103222c" />
 
@@ -143,7 +142,7 @@ This historical trend indicates that customers are most active during late morni
 
 ---
 
-## 👥 Customer Segmentation (RFM Analysis)
+# Customer Segmentation (RFM)
 
 <img width="832" height="412" alt="image" src="https://github.com/user-attachments/assets/181b3733-59ac-4705-8691-89d17b4ed60a" />
 
@@ -236,7 +235,7 @@ Interactive Drill-Through Dashboard – Add drill-through pages and dynamic filt
 
 ---
 
- 📂 Repository Structure
+📂 Repository Structure
 
 ```text
 Retail-Sales-Performance-Customer-Retention-Analytics/
