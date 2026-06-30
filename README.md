@@ -196,6 +196,7 @@ Based on the analysis, the following recommendations are proposed to improve rev
   - Update RFM analysis periodically to identify changes in purchasing behaviour.
   - This enables proactive retention strategies and supports continuous business improvement.
 
+---
 # 🚀 Future Improvements
 
 This project can be extended by incorporating more advanced analytics techniques, including:
