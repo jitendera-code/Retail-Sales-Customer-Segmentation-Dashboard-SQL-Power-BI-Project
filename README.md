@@ -29,7 +29,7 @@ The objective of this project is to provide business stakeholders with a central
 
 
 ---
-# 🟨 Business Problem
+# Business Problem
 Business stakeholders need a clearer understanding of what drives revenue growth and customer retention. Although the company captures detailed transaction data, it lacks a centralized analytics solution to monitor business performance and identify opportunities for improvement.
 
 Key business questions include:
@@ -46,13 +46,13 @@ Which customers require re-engagement to reduce customer attrition?
 
 Answering these questions enables the business to make informed decisions about inventory planning, marketing strategy, and customer retention initiatives, ultimately supporting long-term revenue growth.
 
-# 🟨 Data Structure & initial checks
+# Data Structure & initial checks
 
 <img width="687" height="517" alt="image" src="https://github.com/user-attachments/assets/0c9e913d-7ccd-44ad-83d1-1931b2495ba1" />
 
 ---
 
-# 🟨 Methodology
+#  Methodology
 
 1. Cleaned and transformed raw retail transaction data using **SQL Server**.
 2. Built an interactive **Power BI dashboard** to monitor KPIs, revenue trends, product performance, and customer behavior.
@@ -61,7 +61,7 @@ Answering these questions enables the business to make informed decisions about 
 
 ---
 
-# 🟨 Skills
+#  Skills
 
 SQL Server: Views, Data Cleaning, Data Transformation, Joins, Common Table Expressions (CTEs), Aggregate Functions, CASE Statements, Window Functions (NTILE), GROUP BY, Date Functions, RFM Analysis, Business Query Development
 
@@ -74,13 +74,13 @@ Business Analytics: Customer Segmentation (RFM), Revenue Analysis, Product Perfo
 Overview of Findings
 The business generated approximately $10M in revenue from 22K completed orders across 4K customers. Revenue remained relatively stable throughout most of the year before increasing sharply during the fourth quarter, with November generating the highest monthly revenue ($1.51M), highlighting the business's strong dependence on seasonal demand.The analysis identified three key opportunities for improvement. First, revenue is concentrated among a relatively small number of high-performing products, emphasizing the importance of effective inventory management. Second, customer purchasing activity peaks between 10 AM and 2 PM, creating opportunities to improve the timing of marketing campaigns and operational planning. Finally, RFM analysis shows that a significant portion of customers belong to At Risk, Needs Attention, and Lost Customer segments, indicating that strengthening customer retention strategies could have a meaningful impact on long-term revenue growth.
 
-# 🟨 Dashboard
+#  Dashboard
 
 ![Dashboard](visuals.png)
 
 ---
 
-# 🟨 Results 
+# Insights Deep Dive
 
 ## 📈 Insight 1: Revenue Follows a Strong Seasonal Growth Pattern
 
