@@ -192,14 +192,18 @@ Based on the analysis, the following recommendations are proposed to improve rev
 
 This project can be extended further through:
 
-Customer Churn Prediction
-Customer Lifetime Value (CLV) Prediction
+Customer Churn Prediction model
+
 Sales Forecasting
+
 Cohort Retention Analysis
-Market Basket Analysis
+
 Product Profitability Analysis
+
 Geographic Sales Analysis
+
 Automated Data Refresh
+
 Drill-through Dashboard Pages
 
 These enhancements would provide deeper analytical insights and strengthen business decision-making.
