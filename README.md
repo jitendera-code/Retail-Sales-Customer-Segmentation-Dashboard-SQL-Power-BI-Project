@@ -25,22 +25,10 @@ The objective of this project is to provide business stakeholders with a central
 
 
 
-# 🟨 Executive Summary
+# 🟨 Data Structure & initial checks
 
-A UK-based online retailer wanted a better understanding of **sales performance, customer purchasing behavior, and customer retention**. Existing transaction data was difficult to analyze and provided limited visibility into which customers generated the most value or which customers were at risk of churn.
+<img width="687" height="517" alt="image" src="https://github.com/user-attachments/assets/0c9e913d-7ccd-44ad-83d1-1931b2495ba1" />
 
-To solve this problem, I cleaned and transformed retail transaction data using **SQL Server**, developed an interactive **Power BI dashboard**, and performed **RFM (Recency, Frequency, Monetary) Analysis** to segment customers based on purchasing behavior.
-
-The analysis revealed four key business opportunities:
-
-- Revenue peaks significantly during **Q4**, indicating strong seasonal demand.
-- A small number of products contribute a large share of total revenue.
-- Customer purchasing activity is highest between **11 AM and 2 PM**.
-- A large proportion of customers belong to **At Risk**, **Needs Attention**, and **Lost Customer** segments, making customer retention the biggest opportunity for business growth.
-
-**Next Step:** Launch targeted customer retention campaigns, improve inventory planning before Q4, and automate reporting for continuous business monitoring.
-
----
 
 # 🟨 Business Problem
 
