@@ -63,10 +63,16 @@ The business generated approximately $10M in revenue from 22K completed orders a
 
 #  Methodology
 
-1. Cleaned and transformed raw retail transaction data using **SQL Server**.
-2. Built an interactive **Power BI dashboard** to monitor KPIs, revenue trends, product performance, and customer behavior.
-3. Performed **RFM Analysis** to segment customers and identify retention opportunities.
-4. Translated analytical findings into actionable business recommendations for marketing and management teams.
+Imported the Online Retail dataset into SQL Server and prepared it for analysis.
+
+Cleaned and transformed the transaction data by handling missing values, removing cancelled orders, converting data types, and creating a reusable SQL View.
+
+Performed Exploratory Data Analysis (EDA) using SQL to analyze revenue, customer behavior, product performance, monthly sales trends, peak shopping hours, country-wise revenue, and average order value.
+
+Conducted RFM (Recency, Frequency, Monetary) Analysis using SQL window functions to segment customers based on purchasing behavior.
+Exported the SQL query outputs as CSV files and imported them into Power BI.
+
+Built an interactive Power BI dashboard to visualize KPIs, sales performance, customer segmentation, product contribution, and revenue trends.
 
 ---
 
