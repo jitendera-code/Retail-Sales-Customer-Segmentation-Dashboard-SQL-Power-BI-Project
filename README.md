@@ -28,12 +28,6 @@ Customer Retention Strategy: Evaluate customer loyalty patterns and identify opp
 The objective of this project is to provide business stakeholders with a centralized executive dashboard that supports data-driven decision-making, improves customer retention, optimizes inventory planning, and enables sustainable revenue growth.
 
 
-
-# 🟨 Data Structure & initial checks
-
-<img width="687" height="517" alt="image" src="https://github.com/user-attachments/assets/0c9e913d-7ccd-44ad-83d1-1931b2495ba1" />
-
-
 # 🟨 Business Problem
 
 Business stakeholders need a clearer understanding of what drives revenue growth and customer retention. Although the company captures detailed transaction data, it lacks a centralized analytics solution to monitor business performance and identify opportunities for improvement.
@@ -47,6 +41,10 @@ Which customer segments contribute the greatest business value?
 Which customers require re-engagement to reduce customer attrition?
 
 Answering these questions enables the business to make informed decisions about inventory planning, marketing strategy, and customer retention initiatives, ultimately supporting long-term revenue growth.
+
+# 🟨 Data Structure & initial checks
+
+<img width="687" height="517" alt="image" src="https://github.com/user-attachments/assets/0c9e913d-7ccd-44ad-83d1-1931b2495ba1" />
 
 ---
 
