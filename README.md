@@ -55,10 +55,18 @@ The business generated approximately $10M in revenue from 22K completed orders a
 ![Dashboard](visuals.png)
 
 ---
-# Data Structure & initial checks
+# # 🗂️ Dataset Overview
 
-<img width="687" height="517" alt="image" src="https://github.com/user-attachments/assets/0c9e913d-7ccd-44ad-83d1-1931b2495ba1" />
-
+| Attribute | Details |
+|------------|----------|
+| Dataset | Online Retail |
+| Analysis Period | December 2010 – December 2011 |
+| Total Records | 541,909 |
+| Customers | ~4,000 |
+| Orders | ~22,000 |
+| Revenue | ~$10 Million |
+| Primary Market | United Kingdom |
+| Data Granularity | One row per invoice line item |
 ---
 
 #  Project Methodology
