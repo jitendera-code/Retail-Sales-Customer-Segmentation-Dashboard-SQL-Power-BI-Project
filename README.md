@@ -7,6 +7,23 @@
 ![Excel](https://img.shields.io/badge/Excel-Data%20Preparation-217346?logo=microsoftexcel&logoColor=white)
 
 ---
+# 📖 Project Background
+
+A UK-based online retail company specializing in gifts, home décor, stationery, and seasonal products processes thousands of customer transactions every year. While the company collects a large volume of transactional data, Sales and Marketing teams lack a centralized reporting solution to monitor business performance, understand customer purchasing behavior, and identify opportunities to improve customer retention.
+
+This project analyzes historical retail transaction data to transform raw sales records into actionable business insights. By leveraging SQL Server for data preparation and Power BI for interactive visualization, the analysis provides decision-makers with a centralized dashboard to monitor revenue performance, product sales, customer behavior, and customer retention trends.
+
+Insights and recommendations are provided across the following key business areas:
+
+Revenue Performance: Evaluate overall business performance using key metrics such as Total Revenue, Total Orders, Total Customers, and Average Order Value (AOV) while identifying seasonal revenue trends throughout the year.
+Product Performance: Identify the products generating the highest revenue and evaluate their contribution to overall business performance to support inventory planning and merchandising decisions.
+Customer Purchasing Behavior: Analyze hourly purchasing patterns to understand when customers are most active and identify opportunities to optimize marketing campaigns and operational planning.
+Customer Segmentation (RFM Analysis): Classify customers into behavioral segments using Recency, Frequency, and Monetary (RFM) analysis to identify high-value customers, customers requiring engagement, and customers at risk of becoming inactive.
+Customer Retention Strategy: Evaluate customer loyalty patterns and identify opportunities to improve repeat purchases through targeted retention initiatives and personalized marketing strategies.
+
+The objective of this project is to provide business stakeholders with a centralized executive dashboard that supports data-driven decision-making, improves customer retention, optimizes inventory planning, and enables sustainable revenue growth.
+
+
 
 # 🟨 Executive Summary
 
