@@ -1,4 +1,4 @@
-# 📊 Retail Sales Performance & Customer segmentation analysis using(RFM)
+# Retail Sales Performance & Customer segmentation analysis using(RFM)
 
 
 ---
