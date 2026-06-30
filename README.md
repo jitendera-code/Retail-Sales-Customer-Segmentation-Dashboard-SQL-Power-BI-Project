@@ -1,12 +1,12 @@
 # Retail Customer Segmentation (RFM Analysis) | SQL | Power BI | Customer Retention Analytics
 
-> End-to-end Data Analytics project that analyzes retail transactions to identify customer segments, improve customer retention, and support business decision-making using SQL Server and Power BI.
+> 
 
 ![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-Analysis-CC2927?logo=microsoftsqlserver&logoColor=white)
 ![Excel](https://img.shields.io/badge/Excel-Data%20Preparation-217346?logo=microsoftexcel&logoColor=white)
 
----
+--- End-to-end Data Analytics project that analyzes retail transactions to identify customer segments, improve customer retention, and support business decision-making using SQL Server and Power BI.
 
 # Executive Summary
 
