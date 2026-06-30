@@ -1,12 +1,32 @@
-#  Retail Sales Performance & Customer Retention Analytics
+# 📊 Retail Sales Performance & Customer Retention Analytics
 
-
-
-![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
-![SQL Server](https://img.shields.io/badge/SQL%20Server-Analysis-CC2927?logo=microsoftsqlserver&logoColor=white)
-![Excel](https://img.shields.io/badge/Excel-Data%20Preparation-217346?logo=microsoftexcel&logoColor=white)
+![Power BI Badge]
+![SQL Server Badge]
+![Excel Badge]
 
 ---
+
+## 📑 Table of Contents
+
+- [📖 Project Background](#-project-background)
+- [🎯 Business Problem](#-business-problem)
+- [📊 Executive Summary](#-executive-summary)
+- [🗂️ Dataset Overview](#️-dataset-overview)
+- [🗄️ Dataset Structure & Data Model (ERD)](#️-dataset-structure--data-model-erd)
+- [⚙️ Project Methodology](#️-project-methodology)
+- [🛠️ Technical Skills Demonstrated](#️-technical-skills-demonstrated)
+- [📈 Insights Deep Dive](#-insights-deep-dive)
+  - [Revenue Performance](#-revenue-performance)
+  - [Product Performance](#-product-performance)
+  - [Customer Purchasing Behaviour](#-customer-purchasing-behaviour)
+  - [Customer Segmentation (RFM)](#-customer-segmentation-rfm)
+- [💡 Business Recommendations](#-business-recommendations)
+- [🚀 Future Improvements](#-future-improvements)
+- [📂 Repository Structure](#-repository-structure)
+  
+
+---
+
 # 📖 Project Background
 
 A UK-based online retail company specializing in gifts, home décor, stationery, and seasonal products processes thousands of customer transactions every year. While the company collects a large volume of transactional data, Sales and Marketing teams lack a centralized reporting solution to monitor business performance, understand customer purchasing behavior, and identify opportunities to improve customer retention.
