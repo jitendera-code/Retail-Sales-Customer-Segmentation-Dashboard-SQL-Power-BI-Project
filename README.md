@@ -126,6 +126,8 @@ RFM (Recency, Frequency, Monetary) analysis classified customers into six behavi
 
 This distribution suggests that a substantial portion of the customer base is either showing signs of declining engagement or has already become inactive, while comparatively fewer customers demonstrate strong purchasing loyalty. Since retaining existing customers is generally more cost-effective than acquiring new ones, improving engagement among these higher-risk segments presents one of the business's greatest opportunities to increase repeat purchases and long-term customer value.
 
+---
+
 # 💡 Business Recommendations
 
 Based on the analysis, the following recommendations are proposed to improve revenue performance, customer retention, inventory management, and overall business growth.
@@ -196,20 +198,12 @@ Based on the analysis, the following recommendations are proposed to improve rev
 
 # 🚀 Future Improvements
 
-This project can be extended further through:
+This project can be extended by incorporating more advanced analytics techniques, including:
 
-Customer Churn Prediction model
+Customer Churn Prediction – Build a machine learning model to identify customers who are likely to stop purchasing.
 
-Sales Forecasting
+Sales Forecasting – Predict future sales trends using time series forecasting techniques.
 
-Cohort Retention Analysis
+Cohort Analysis – Analyze customer retention and repeat purchase behavior over time.
 
-Product Profitability Analysis
-
-Geographic Sales Analysis
-
-Automated Data Refresh
-
-Drill-through Dashboard Pages
-
-These enhancements would provide deeper analytical insights and strengthen business decision-making.
+Interactive Drill-Through Dashboard – Add drill-through pages and dynamic filters for deeper customer and product analysis.
