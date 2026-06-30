@@ -29,7 +29,6 @@ The objective of this project is to provide business stakeholders with a central
 
 
 # 🟨 Business Problem
-
 Business stakeholders need a clearer understanding of what drives revenue growth and customer retention. Although the company captures detailed transaction data, it lacks a centralized analytics solution to monitor business performance and identify opportunities for improvement.
 
 Key business questions include:
