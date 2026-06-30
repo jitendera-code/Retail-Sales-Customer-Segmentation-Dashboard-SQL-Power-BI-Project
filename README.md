@@ -1,4 +1,4 @@
-# 📊 Retail Sales Performance & Customer Retention Analytics
+# 📊 Retail Sales Performance & Customer segmentation using(RFM) analysis
 
 
 ---
@@ -50,15 +50,15 @@ Business stakeholders need a clearer understanding of what drives revenue growth
 
 Key business questions include:
 
-Which products generate the highest revenue?
+- Which products generate the highest revenue?
 
-How does revenue change throughout the year?
+- How does revenue change throughout the year?
 
-When are customers most likely to make purchases?
+- When are customers most likely to make purchases?
 
-Which customer segments contribute the greatest business value?
+- Which customer segments contribute the greatest business value?
 
-Which customers require re-engagement to reduce customer attrition?
+- Which customers require re-engagement to reduce customer attrition?
 
 Answering these questions enables the business to make informed decisions about inventory planning, marketing strategy, and customer retention initiatives, ultimately supporting long-term revenue growth.
 
@@ -87,13 +87,13 @@ The business generated approximately $10M in revenue from 22K completed orders a
 
 # ⚙️ Project Methodology
 
-Imported the Online Retail dataset into SQL Server and prepared it for analysis.
+1. Imported the Online Retail dataset into SQL Server and prepared it for analysis.
 
-Cleaned and transformed the transaction data by handling missing values, removing cancelled orders, converting data types, and creating a reusable SQL View.
+2. Cleaned and transformed the transaction data by handling missing values, removing cancelled orders, converting data types, and creating a reusable SQL View.
 
-Performed Exploratory Data Analysis (EDA) using SQL to analyze revenue, customer behavior, product performance, monthly sales trends, peak shopping hours, country-wise revenue, and average order value.
+3. Performed Exploratory Data Analysis (EDA) using SQL to analyze revenue, customer behavior, product performance, monthly sales trends,peak shopping hours,country-wise revenue, and average order value.
 
-Conducted RFM (Recency, Frequency, Monetary) Analysis using SQL window functions to segment customers based on purchasing behavior.
+4. Conducted RFM (Recency, Frequency, Monetary) Analysis using SQL window functions to segment customers based on purchasing behavior.
 Exported the SQL query outputs as CSV files and imported them into Power BI.
 
 Built an interactive Power BI dashboard to visualize KPIs, sales performance, customer segmentation, product contribution, and revenue trends.
@@ -102,12 +102,11 @@ Built an interactive Power BI dashboard to visualize KPIs, sales performance, cu
 
 # 🛠️ Technical Skills Demonstrated
 
-SQL Server: Views, Data Cleaning, Data Transformation, Joins, Common Table Expressions (CTEs), Aggregate Functions, CASE Statements, Window Functions (NTILE), GROUP BY, Date Functions, RFM Analysis, Business Query Development
-
-Power BI: DAX Measures, Calculated Columns, KPI Cards, Interactive Dashboards, Data Visualization, Time-Based Analysis
-
-Business Analytics: Customer Segmentation (RFM), Revenue Analysis, Product Performance Analysis, Customer Behavior Analysis, Customer Retention Analytics, KPI Reporting, Business Storytelling, Business Recommendations
-
+| Category | Skills |
+|----------|---------|
+| **SQL Server** | Views, Data Cleaning, Data Transformation, Joins, Common Table Expressions (CTEs), Aggregate Functions, CASE Statements, Window Functions (`NTILE`), `GROUP BY`, Date Functions, RFM Analysis, Business Query Development |
+| **Power BI** | Data Modeling, DAX Measures, Calculated Columns, KPI Cards, Interactive Dashboards, Data Visualization, Time Intelligence, Slicers & Filters |
+| **Business Analytics** | Customer Segmentation (RFM), Revenue Analysis, Product Performance Analysis, Customer Behaviour Analysis, Customer Retention Analytics, KPI Reporting, Business Storytelling, Business Recommendations |
 
 
 ---
