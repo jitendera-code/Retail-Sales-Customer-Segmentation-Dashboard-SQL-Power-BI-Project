@@ -144,11 +144,13 @@ This historical trend indicates that customers are most active during late morni
 
 # Customer Segmentation (RFM)
 
-<img width="832" height="412" alt="image" src="https://github.com/user-attachments/assets/181b3733-59ac-4705-8691-89d17b4ed60a" />
+<img width="822" height="432" alt="image" src="https://github.com/user-attachments/assets/0c149b75-4222-4b04-9146-8410b670bcff" />
 
-RFM (Recency, Frequency, Monetary) analysis classified customers into six behavioral segments based on their purchasing activity. The largest customer groups belong to At Risk (868 customers), Lost Customers (868), Needs Attention (868), and Potential Loyalists (867), while only 344 customers are classified as Champions and 523 as Loyal Customers.
 
-This distribution suggests that a substantial portion of the customer base is either showing signs of declining engagement or has already become inactive, while comparatively fewer customers demonstrate strong purchasing loyalty. Since retaining existing customers is generally more cost-effective than acquiring new ones, improving engagement among these higher-risk segments presents one of the business's greatest opportunities to increase repeat purchases and long-term customer value.
+RFM (Recency, Frequency, Monetary) analysis classified customers into three behavioral segments based on their purchasing activity. The largest customer group belongs to At Risk Customers (2,758 customers), followed by Active Customers (999 customers), while only 581 customers are classified as Average Customers.
+
+This distribution indicates that a significant proportion of the customer base has reduced purchasing activity and is at risk of disengagement, while a smaller percentage of customers remain highly active and contribute consistently to the business. The relatively low number of Average Customers suggests limited movement between high-value and low-engagement segments. Since retaining existing customers is generally more cost-effective than acquiring new ones, re-engaging At Risk Customers while maintaining the loyalty of Active Customers presents one of the business's greatest opportunities to improve customer retention, increase repeat purchases, and maximize long-term customer value.
+
 
 ---
 
@@ -182,19 +184,23 @@ Based on the analysis, the following recommendations are proposed to improve rev
 
 ---
 
-## 👥 Customer Retention & CRM
+## ## 👥 Customer Retention & CRM
 
-- **Launch personalized win-back campaigns for inactive customers.**
-  - RFM analysis identified **868 At Risk**, **868 Lost Customers**, and **868 Needs Attention** customers, representing the largest customer segments.
-  - Personalized discounts, reminder emails, and targeted promotions can encourage repeat purchases before customers become permanently inactive.
+- **Launch targeted retention campaigns for At Risk Customers.**
+  - RFM analysis identified **2,758 At Risk Customers**, making this the largest customer segment.
+  - Personalized discounts, reminder emails, product recommendations, and limited-time offers can help re-engage these customers before they become inactive, improving retention and reducing potential revenue loss.
 
-- **Strengthen customer loyalty programs.**
-  - Only **344 customers** were classified as Champions and **523 customers** as Loyal Customers.
-  - Reward these high-value customers with exclusive offers, early product access, and loyalty incentives to improve Customer Lifetime Value (CLV).
+- **Strengthen loyalty programs for Active Customers.**
+  - Only **999 customers** were classified as Active Customers, representing the business's most valuable customer group.
+  - Reward these customers with exclusive offers, loyalty points, early access to new products, and personalized experiences to increase Customer Lifetime Value (CLV) and encourage long-term loyalty.
 
-- **Use RFM segmentation for personalized marketing.**
-  - Monitor customer movement between RFM segments regularly.
-  - Tailor marketing campaigns according to customer behaviour instead of applying the same strategy to every customer.
+- **Convert Average Customers into Active Customers.**
+  - The business has **581 Average Customers** who demonstrate moderate purchasing behaviour and engagement.
+  - Personalized promotions, cross-selling opportunities, and targeted marketing campaigns can encourage more frequent purchases and gradually move these customers into the Active Customer segment.
+
+- **Adopt customer-focused marketing using RFM segmentation.**
+  - Monitor customer movement between RFM segments on a regular basis to evaluate changes in purchasing behaviour.
+  - Tailor marketing campaigns according to each customer segment instead of using a one-size-fits-all approach, allowing marketing resources to be focused where they can deliver the greatest business impact.
 
 ---
 
