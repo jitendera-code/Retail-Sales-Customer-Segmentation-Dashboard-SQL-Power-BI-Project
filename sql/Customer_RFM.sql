@@ -254,10 +254,10 @@ RFM_Segmented AS
         CONCAT(R_Score, F_Score, M_Score) AS RFM_Score,
         CASE
             WHEN R_Score >= 4 AND F_Score >= 4 AND M_Score >= 4
-                THEN 'Good Customers'
+                THEN 'Active Customers'
             WHEN R_Score >= 3 AND F_Score >= 3 AND M_Score >= 3
                 THEN 'Average Customers'
-            ELSE 'Bad Customers'
+            ELSE 'At Risk Customers'
         END AS Customer_Segment
     FROM RFM_Ranked
 )
