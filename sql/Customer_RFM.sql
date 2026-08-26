@@ -1,99 +1,139 @@
 /*
 ===============================================================================
-PROJECT: Retail Sales Performance & Customer Segmentation Analysis
+PROJECT: Online Retail - RFM Customer Segmentation
 DATABASE: SQL Server
 
-BUSINESS OBJECTIVE
-------------------
-Use customer transaction history to understand purchasing behaviour and
-identify customers who should be retained, nurtured, or re-engaged.
+BUSINESS QUESTION
+-----------------
+How can we identify and group customers based on:
+1. How recently they purchased?
+2. How frequently they purchase?
+3. How much they spend?
 
 RFM = Recency + Frequency + Monetary
 
-This script answers the following business questions:
-1. What is each customer's purchasing behaviour?
-2. Which customers are the most valuable?
-3. Which customers are at risk of becoming inactive?
-4. How can customers be grouped into actionable RFM segments?
-5. How many customers and how much revenue does each segment contribute?
+TUTORIAL-ALIGNED WORKFLOW
+--------------------------
+Raw Transactions -> Customer RFM Metrics -> RFM CTE -> NTILE(5) Scores
+-> Combined RFM Score -> Good / Average / Bad Segments -> Marketing Actions
 
-RFM DEFINITIONS
----------------
-Recency  : How many days since the customer's most recent purchase?
-Frequency: How many distinct orders has the customer placed?
-Monetary : How much has the customer spent in total?
-
-SCORING LOGIC
--------------
-R Score: 5 = most recent purchase, 1 = least recent
-F Score: 5 = highest purchase frequency, 1 = lowest frequency
-M Score: 5 = highest spending, 1 = lowest spending
-
-IMPORTANT:
-Recency is ranked ASCENDING because fewer days since purchase is better.
-Frequency and Monetary are ranked ASCENDING and the resulting NTILE score
-is reversed so that higher values receive higher scores.
+Method used:
+- Exclude customers without CustomerID.
+- Recency reference date = MAX(InvoiceDate) in the dataset.
+- Frequency = COUNT(DISTINCT InvoiceNo), not transaction rows.
+- Monetary = SUM(Quantity * UnitPrice).
+- NTILE(5) creates 1-5 scores.
+- Recency uses DESC so recent customers receive higher scores.
+- Frequency and Monetary use ASC so higher values receive higher scores.
 ===============================================================================
 */
 
 
 /*
 ===============================================================================
-1. CUSTOMER-LEVEL RFM METRICS
-
+1. CLEAN TRANSACTION DATA
 Business Question:
-What is the purchasing behaviour of each customer?
-
-Approach:
-- Find the customer's latest purchase date.
-- Calculate days since the latest purchase (Recency).
-- Count distinct invoices (Frequency).
-- Sum customer revenue (Monetary).
-
-The CTE keeps the calculation readable and makes the RFM logic easier to
-modify later.
+Which transactions should be included in customer analysis?
 ===============================================================================
 */
 
-WITH Customer_RFM AS
+CREATE OR ALTER VIEW dbo.vw_CleanedRetail AS
+SELECT
+    InvoiceNo,
+    StockCode,
+    Description,
+    TRY_CAST(Quantity AS FLOAT) AS Quantity,
+    TRY_CONVERT(DATETIME, InvoiceDate, 105) AS InvoiceDate,
+    TRY_CAST(UnitPrice AS FLOAT) AS UnitPrice,
+    CustomerID,
+    Country,
+    TRY_CAST(Quantity AS FLOAT) * TRY_CAST(UnitPrice AS FLOAT) AS TotalPrice
+FROM dbo.online_retail
+WHERE CustomerID IS NOT NULL
+  AND InvoiceNo NOT LIKE 'C%'
+  AND ISNUMERIC(Quantity) = 1
+  AND ISNUMERIC(UnitPrice) = 1;
+
+
+/*
+===============================================================================
+2. CUSTOMER-LEVEL RFM METRICS
+Business Question:
+What are the Recency, Frequency and Monetary values for each customer?
+
+Recency  = days since most recent purchase.
+Frequency = number of distinct invoices/orders.
+Monetary = total customer spending.
+
+The dataset MAX(InvoiceDate) is used as the reference date so the analysis
+is reproducible instead of changing with the day the query is executed.
+===============================================================================
+*/
+
+CREATE OR ALTER VIEW dbo.vw_RFM AS
+SELECT
+    CustomerID,
+
+    DATEDIFF(
+        DAY,
+        MAX(InvoiceDate),
+        (SELECT MAX(InvoiceDate) FROM dbo.vw_CleanedRetail)
+    ) AS Recency,
+
+    COUNT(DISTINCT InvoiceNo) AS Frequency,
+
+    ROUND(SUM(TotalPrice), 2) AS Monetary
+
+FROM dbo.vw_CleanedRetail
+GROUP BY CustomerID;
+
+
+/*
+===============================================================================
+3. RFM SCORES USING NTILE(5)
+Business Question:
+How can customers be ranked from 1 to 5 for each RFM dimension?
+
+Recency:
+Lower days = better. ORDER BY Recency DESC gives recent customers higher
+NTILE scores.
+
+Frequency:
+Higher number of orders = better. ORDER BY Frequency ASC gives the highest
+frequency group score 5.
+
+Monetary:
+Higher spending = better. ORDER BY Monetary ASC gives the highest monetary
+group score 5.
+===============================================================================
+*/
+
+WITH RFM_Ranked AS
 (
     SELECT
         CustomerID,
+        Recency,
+        Frequency,
+        Monetary,
 
-        /*
-        RECENCY
-        Number of days between the customer's last purchase and the
-        latest transaction date available in the cleaned dataset.
-        Lower Recency = better customer engagement.
-        */
-        DATEDIFF
-        (
-            DAY,
-            MAX(InvoiceDate),
-            (SELECT MAX(InvoiceDate) FROM dbo.vw_CleanedRetail)
-        ) AS Recency,
+        NTILE(5) OVER (ORDER BY Recency DESC) AS R_Score,
+        NTILE(5) OVER (ORDER BY Frequency ASC) AS F_Score,
+        NTILE(5) OVER (ORDER BY Monetary ASC) AS M_Score
 
-        /* FREQUENCY
-           Number of distinct orders placed by the customer. */
-        COUNT(DISTINCT InvoiceNo) AS Frequency,
-
-        /* MONETARY
-           Total revenue generated by the customer. */
-        SUM(TotalPrice) AS Monetary
-
-    FROM dbo.vw_CleanedRetail
-    GROUP BY CustomerID
+    FROM dbo.vw_RFM
 ),
 
 
 /*
 ===============================================================================
-2. RFM SCORING
-
+4. COMBINE THE RFM SCORES
 Business Question:
-How can customers be ranked based on Recency, Frequency and Monetary value?
+What is the customer's combined RFM profile?
 
-NTILE(5) divides customers into five approximately equal groups.
+Examples:
+555 = strongest possible profile
+432 = R=4, F=3, M=2
+111 = weakest possible profile
 ===============================================================================
 */
 
@@ -104,63 +144,58 @@ RFM_Scored AS
         Recency,
         Frequency,
         Monetary,
-
-        /*
-        RECENCY SCORE
-        Lower Recency is better, therefore ASCENDING order is used.
-        NTILE gives 1 to the least-recent group and 5 to the most-recent group.
-        */
-        NTILE(5) OVER
-        (
-            ORDER BY Recency DESC
-        ) AS Recency_Raw,
-
-        /*
-        FREQUENCY SCORE
-        Higher Frequency is better.
-        */
-        NTILE(5) OVER
-        (
-            ORDER BY Frequency ASC
-        ) AS Frequency_Raw,
-
-        /*
-        MONETARY SCORE
-        Higher Monetary value is better.
-        */
-        NTILE(5) OVER
-        (
-            ORDER BY Monetary ASC
-        ) AS Monetary_Raw
-
-    FROM Customer_RFM
+        R_Score,
+        F_Score,
+        M_Score,
+        CONCAT(R_Score, F_Score, M_Score) AS RFM_Score
+    FROM RFM_Ranked
 ),
 
 
 /*
 ===============================================================================
-3. FINAL RFM SCORE
+5. CUSTOMER SEGMENTATION
+Business Question:
+Which customers are Good, Average or Bad based on RFM behaviour?
 
-Convert the raw scores into business-friendly 1-5 scores and create:
-- RFM Score       : e.g. 555, 453, 215
-- RFM Total Score : Sum of R + F + M, ranging from 3 to 15
+Good Customers:
+    R >= 4 AND F >= 4 AND M >= 4
+
+Average Customers:
+    R >= 3 AND F >= 3 AND M >= 3
+
+Bad Customers:
+    All remaining RFM combinations.
+
+The segment names intentionally follow the tutorial summary.
 ===============================================================================
 */
 
-RFM_Final AS
+RFM_Segmented AS
 (
     SELECT
         CustomerID,
         Recency,
         Frequency,
         Monetary,
+        R_Score,
+        F_Score,
+        M_Score,
+        RFM_Score,
 
-        /* Reverse Recency so 5 = most recent and 1 = least recent. */
-        6 - Recency_Raw AS R_Score,
+        CASE
+            WHEN R_Score >= 4
+             AND F_Score >= 4
+             AND M_Score >= 4
+                THEN 'Good Customers'
 
-        /* Frequency and Monetary already have 5 = highest value. */
-        Frequency_Raw AS F_Score,
-        Monetary_Raw AS M_Score
+            WHEN R_Score >= 3
+             AND F_Score >= 3
+             AND M_Score >= 3
+                THEN 'Average Customers'
+
+            ELSE 'Bad Customers'
+        END AS Customer_Segment
 
     FROM RFM_Scored
 )
@@ -168,59 +203,9 @@ RFM_Final AS
 
 /*
 ===============================================================================
-4. CUSTOMER SEGMENTATION
-
+6. FINAL CUSTOMER-LEVEL RFM OUTPUT
 Business Question:
-Which customers should the business prioritize for retention and engagement?
-
-Segment definitions:
-- Active Customers : RFM Total Score 12-15
-- Regular Customers: RFM Total Score 8-11
-- At Risk Customers: RFM Total Score 3-7
-
-These thresholds can be adjusted later based on business requirements.
-===============================================================================
-*/
-
-SELECT
-    CustomerID,
-    Recency,
-    Frequency,
-    ROUND(Monetary, 2) AS Monetary,
-
-    R_Score,
-    F_Score,
-    M_Score,
-
-    /* Three-digit RFM score, e.g. 555 = strongest profile. */
-    CONCAT(R_Score, F_Score, M_Score) AS RFM_Score,
-
-    /* Overall RFM strength. */
-    R_Score + F_Score + M_Score AS RFM_Total_Score,
-
-    /* Business-friendly customer segment. */
-    CASE
-        WHEN R_Score + F_Score + M_Score >= 12
-            THEN 'Active Customers'
-
-        WHEN R_Score + F_Score + M_Score >= 8
-            THEN 'Regular Customers'
-
-        ELSE 'At Risk Customers'
-    END AS Customer_Segment
-
-INTO dbo.RFM_Scored
-FROM RFM_Final;
-
-
-/*
-===============================================================================
-5. CUSTOMER SEGMENT OUTPUT
-
-Business Question:
-What does the final customer-level segmentation look like?
-
-This result can be exported to Power BI for dashboard analysis.
+What customer-level RFM result can be shared with marketing or Power BI?
 ===============================================================================
 */
 
@@ -233,121 +218,166 @@ SELECT
     F_Score,
     M_Score,
     RFM_Score,
-    RFM_Total_Score,
     Customer_Segment
-FROM dbo.RFM_Scored
+FROM RFM_Segmented
 ORDER BY
-    RFM_Total_Score DESC,
-    Monetary DESC;
+    R_Score DESC,
+    F_Score DESC,
+    M_Score DESC;
 
 
 /*
 ===============================================================================
-6. HIGHEST-VALUE CUSTOMERS
-
-Business Question:
-Who are the customers with the strongest possible RFM profile?
-
-RFM 555 means:
-- Very recent purchase
-- Very high purchase frequency
-- Very high monetary value
-
-Business use:
-These customers can be targeted with VIP offers, loyalty rewards,
-exclusive product launches and retention campaigns.
-===============================================================================
-*/
-
-SELECT
-    CustomerID,
-    Recency,
-    Frequency,
-    ROUND(Monetary, 2) AS Monetary,
-    RFM_Score,
-    RFM_Total_Score,
-    Customer_Segment
-FROM dbo.RFM_Scored
-WHERE RFM_Score = '555'
-ORDER BY Monetary DESC;
-
-
-/*
-===============================================================================
-7. CUSTOMER SEGMENT SUMMARY
-
+7. RFM SEGMENT SUMMARY
 Business Question:
 How many customers are in each segment and how much revenue does each
 segment contribute?
-
-Business use:
-This connects customer behaviour with business value and helps management
-prioritize retention and marketing investment.
 ===============================================================================
 */
 
+WITH RFM_Ranked AS
+(
+    SELECT
+        CustomerID,
+        Recency,
+        Frequency,
+        Monetary,
+        NTILE(5) OVER (ORDER BY Recency DESC) AS R_Score,
+        NTILE(5) OVER (ORDER BY Frequency ASC) AS F_Score,
+        NTILE(5) OVER (ORDER BY Monetary ASC) AS M_Score
+    FROM dbo.vw_RFM
+),
+RFM_Segmented AS
+(
+    SELECT
+        *,
+        CONCAT(R_Score, F_Score, M_Score) AS RFM_Score,
+        CASE
+            WHEN R_Score >= 4 AND F_Score >= 4 AND M_Score >= 4
+                THEN 'Good Customers'
+            WHEN R_Score >= 3 AND F_Score >= 3 AND M_Score >= 3
+                THEN 'Average Customers'
+            ELSE 'Bad Customers'
+        END AS Customer_Segment
+    FROM RFM_Ranked
+)
 SELECT
     Customer_Segment,
     COUNT(*) AS Customer_Count,
     ROUND(SUM(Monetary), 2) AS Segment_Revenue,
     ROUND(AVG(Monetary), 2) AS Average_Customer_Revenue,
-    ROUND(AVG(RFM_Total_Score), 2) AS Average_RFM_Score
-FROM dbo.RFM_Scored
+    ROUND(AVG(R_Score), 2) AS Average_R_Score,
+    ROUND(AVG(F_Score), 2) AS Average_F_Score,
+    ROUND(AVG(M_Score), 2) AS Average_M_Score
+FROM RFM_Segmented
 GROUP BY Customer_Segment
 ORDER BY Segment_Revenue DESC;
 
 
 /*
 ===============================================================================
-8. AT-RISK CUSTOMER LIST
-
+8. BEST CUSTOMERS
 Business Question:
-Which At-Risk customers should be prioritized for re-engagement?
+Who has the strongest possible RFM profile?
 
-Business use:
-Prioritize customers with higher historical spending first, because winning
-back a previously valuable customer can have a greater revenue impact.
-
-Possible actions:
-- Win-back offers
-- Personalized discounts
-- Product recommendations
-- Reminder campaigns
-- Loyalty incentives
+RFM 555 = most recent + highest frequency + highest monetary group.
 ===============================================================================
 */
 
+WITH RFM_Ranked AS
+(
+    SELECT
+        CustomerID,
+        Recency,
+        Frequency,
+        Monetary,
+        NTILE(5) OVER (ORDER BY Recency DESC) AS R_Score,
+        NTILE(5) OVER (ORDER BY Frequency ASC) AS F_Score,
+        NTILE(5) OVER (ORDER BY Monetary ASC) AS M_Score
+    FROM dbo.vw_RFM
+)
 SELECT
     CustomerID,
     Recency,
     Frequency,
     ROUND(Monetary, 2) AS Monetary,
-    RFM_Score,
-    RFM_Total_Score
-FROM dbo.RFM_Scored
-WHERE Customer_Segment = 'At Risk Customers'
+    R_Score,
+    F_Score,
+    M_Score,
+    CONCAT(R_Score, F_Score, M_Score) AS RFM_Score
+FROM RFM_Ranked
+WHERE R_Score = 5
+  AND F_Score = 5
+  AND M_Score = 5
 ORDER BY Monetary DESC;
 
 
 /*
 ===============================================================================
-END OF RFM ANALYSIS
+9. BAD CUSTOMER / RE-ENGAGEMENT OPPORTUNITY
+Business Question:
+Which customers have weaker RFM behaviour and may require re-engagement?
 
-POWER BI RECOMMENDATIONS
-------------------------
-Use dbo.RFM_Scored to build visuals for:
-- Customer Count by Segment
-- Revenue by Segment
-- Average Customer Revenue by Segment
-- Average RFM Score by Segment
-- Top RFM Customers
-- At-Risk Customer Revenue Opportunity
+Business action:
+Prioritize higher-spending customers within this group for win-back offers,
+personalized campaigns and product recommendations.
+===============================================================================
+*/
+
+WITH RFM_Ranked AS
+(
+    SELECT
+        CustomerID,
+        Recency,
+        Frequency,
+        Monetary,
+        NTILE(5) OVER (ORDER BY Recency DESC) AS R_Score,
+        NTILE(5) OVER (ORDER BY Frequency ASC) AS F_Score,
+        NTILE(5) OVER (ORDER BY Monetary ASC) AS M_Score
+    FROM dbo.vw_RFM
+),
+RFM_Segmented AS
+(
+    SELECT
+        *,
+        CASE
+            WHEN R_Score >= 4 AND F_Score >= 4 AND M_Score >= 4
+                THEN 'Good Customers'
+            WHEN R_Score >= 3 AND F_Score >= 3 AND M_Score >= 3
+                THEN 'Average Customers'
+            ELSE 'Bad Customers'
+        END AS Customer_Segment
+    FROM RFM_Ranked
+)
+SELECT
+    CustomerID,
+    Recency,
+    Frequency,
+    ROUND(Monetary, 2) AS Monetary,
+    R_Score,
+    F_Score,
+    M_Score,
+    CONCAT(R_Score, F_Score, M_Score) AS RFM_Score
+FROM RFM_Segmented
+WHERE Customer_Segment = 'Bad Customers'
+ORDER BY Monetary DESC;
+
+
+/*
+===============================================================================
+POWER BI OUTPUTS
+----------------
+Use the final RFM result to build:
+1. Customer Distribution by RFM Segment
+2. Revenue Contribution by RFM Segment
+3. RFM Score distribution
+4. Top 555 Customers
+5. Bad Customer Revenue Opportunity
 
 BUSINESS STORY
 --------------
-The analysis moves from transaction-level data to customer-level behaviour,
-then converts that behaviour into actionable customer segments. This allows
-marketing and CRM teams to focus resources on customers based on their value
-and likelihood of continued engagement.
+RFM converts transaction-level data into customer-level behaviour. The
+resulting scores allow marketing teams to retain Good Customers, nurture
+Average Customers and re-engage Bad Customers.
 ===============================================================================
 */
